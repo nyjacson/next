@@ -12,7 +12,7 @@ export default () => (
     <div>
       <h1>Hello world</h1>
       <p>scoped!</p>
-      <Button>Click Here</Button>
+      <Button primary>Click Here</Button>
     </div>
     <style jsx>{`
       p {
