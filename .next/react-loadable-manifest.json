@@ -1,4 +1,44 @@
 {
+  "./header.scss": [
+    {
+      "id": "./components/header/header.scss",
+      "name": "./components/header/header.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 9,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 7,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 8,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
   "./footer.scss": [
     {
       "id": "./components/footer/footer.scss",
@@ -7,10 +47,26 @@
       "publicPath": "static/chunks/styles.js"
     }
   ],
-  "undefined": [
+  "./page.scss": [
     {
-      "id": 5,
-      "name": null,
+      "id": "./layouts/page.scss",
+      "name": "./layouts/page.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./postsList.scss": [
+    {
+      "id": "./util/postsList/postsList.scss",
+      "name": "./util/postsList/postsList.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./postPage.scss": [
+    {
+      "id": "./util/postPage/postPage.scss",
+      "name": "./util/postPage/postPage.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }

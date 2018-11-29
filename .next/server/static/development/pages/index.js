@@ -125,13 +125,14 @@ var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Pro
 
 function Footer(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ui container ".concat(_footer_scss__WEBPACK_IMPORTED_MODULE_1___default.a.wrapper, " py-3"),
+    className: _footer_scss__WEBPACK_IMPORTED_MODULE_1___default.a.wrapper,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 6
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ui container py-3",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
@@ -139,6 +140,19 @@ function Footer(props) {
     __self: this
   }, "footerLink"));
 }
+
+/***/ }),
+
+/***/ "./components/header/header.scss":
+/*!***************************************!*\
+  !*** ./components/header/header.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"headerWrapper": "_1KlXYR8Dv4hcgg4fyaVIH3"
+};
 
 /***/ }),
 
@@ -159,7 +173,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _constants_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/common */ "./constants/common.js");
+/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header.scss */ "./components/header/header.scss");
+/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_header_scss__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/components/header/index.js";
+
 
 
 
@@ -168,19 +185,19 @@ function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 9
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     },
     __self: this
   }, props.headTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
@@ -188,7 +205,7 @@ function Header(props) {
     content: "initial-scale=1.0, width=device-width",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -196,7 +213,7 @@ function Header(props) {
     href: "/static/css/semantic.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 13
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -204,14 +221,21 @@ function Header(props) {
     href: "/static/css/styles.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
     },
     __self: this
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    class: _header_scss__WEBPACK_IMPORTED_MODULE_4___default.a.headerWrapper,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     class: "ui container py-3",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 17
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -220,16 +244,16 @@ function Header(props) {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 18
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 18
     },
     __self: this
-  }, "Logo"))));
+  }, "Logo")))));
 }
 Header.defaultProps = {
   headTitle: 'COMMON.HPName'
@@ -285,7 +309,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/header */ "./components/header/index.js");
 /* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/footer */ "./components/footer/index.js");
+/* harmony import */ var _page_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./page.scss */ "./layouts/page.scss");
+/* harmony import */ var _page_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_page_scss__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/layouts/page.js";
+
 
 
 
@@ -295,31 +322,51 @@ var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Pro
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 5
+      lineNumber: 7
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     headTitle: headTitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 8
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "ui container",
+    class: _page_scss__WEBPACK_IMPORTED_MODULE_3___default.a.mainWrapper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 9
     },
     __self: this
-  }, children), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    class: "ui container",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
+  }, children)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
   }));
 });
+
+/***/ }),
+
+/***/ "./layouts/page.scss":
+/*!***************************!*\
+  !*** ./layouts/page.scss ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"mainWrapper": "_2FYN8Ay7f8wSbblpK4kVXQ"
+};
 
 /***/ }),
 
@@ -395,7 +442,10 @@ function (_React$Component) {
             id: r.id,
             title: r.title.rendered,
             content: r.content.rendered,
-            excerpt: r.excerpt.rendered
+            excerpt: r.excerpt.rendered,
+            date: r.date,
+            modified: r.modified,
+            categories: r.categories
           };
         });
       }).then(function () {
@@ -409,10 +459,7 @@ function (_React$Component) {
 
     _this.state = {
       posts: [{
-        id: null,
-        title: null,
-        content: null,
-        excerpt: null
+        id: null
       }]
     };
     return _this;
@@ -447,45 +494,23 @@ function (_React$Component) {
           lineNumber: 50
         },
         __self: this
-      }, "Post list"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+      }, "Post list"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "jsx-284175591",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 51
         },
         __self: this
-      }, "scoped!"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_4__["Button"], {
-        secondary: true,
-        onClick: this.getPosts,
+      }, this.state.posts[0].id !== null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_util_postsList__WEBPACK_IMPORTED_MODULE_6__["PostsList"], {
+        posts: this.state.posts,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 52
         },
         __self: this
-      }, "Click Here"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-        className: "jsx-284175591",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 53
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
-        className: "jsx-284175591",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 54
-        },
-        __self: this
-      }, "fetch response"), this.state.posts[0].id !== null ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_util_postsList__WEBPACK_IMPORTED_MODULE_6__["PostsList"], {
-        posts: this.state.posts,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 55
-        },
-        __self: this
       }) : 'コンテンツがありません')), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
         styleId: "284175591",
-        css: "@media (max-width:600px){p.jsx-284175591{font-size:14px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy95b3N1a2UudHN1dHN1bWkvRG9jdW1lbnRzL1RyYXZlbC9Qcm9qZWN0cy9GRUcvR0lUL1Byb2plY3RzL25leHQvbXlQYWdlL3BhZ2VzL2luZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXlEb0IsQUFJOEIsZUFDakIiLCJmaWxlIjoiL1VzZXJzL3lvc3VrZS50c3V0c3VtaS9Eb2N1bWVudHMvVHJhdmVsL1Byb2plY3RzL0ZFRy9HSVQvUHJvamVjdHMvbmV4dC9teVBhZ2UvcGFnZXMvaW5kZXguanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXG5pbXBvcnQgUGFnZSBmcm9tICcuLi9sYXlvdXRzL3BhZ2UnO1xuaW1wb3J0IGF4aW9zIGZyb20gJ2F4aW9zJztcbmltcG9ydCB7IEJ1dHRvbiB9IGZyb20gJ3NlbWFudGljLXVpLXJlYWN0J1xuaW1wb3J0IEFQSSBmcm9tICcuLi9jb25zdGFudHMvYXBpJztcbmltcG9ydCB7IFBvc3RzTGlzdCB9IGZyb20gJy4uL3V0aWwvcG9zdHNMaXN0JztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgVG9wIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgY29uc3RydWN0b3IocHJvcHMpIHtcbiAgICBzdXBlcihwcm9wcyk7XG4gICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgIHBvc3RzOiBbe1xuICAgICAgICBpZDogbnVsbCxcbiAgICAgICAgdGl0bGU6IG51bGwsXG4gICAgICAgIGNvbnRlbnQ6IG51bGwsXG4gICAgICAgIGV4Y2VycHQ6IG51bGwgICAgICAgIFxuICAgICAgfV1cbiAgICB9XG4gIH1cblxuICBjb21wb25lbnREaWRNb3VudCgpIHtcbiAgICB0aGlzLmdldFBvc3RzKCk7XG4gIH1cblxuICBnZXRQb3N0cyA9ICgpID0+IHtcbiAgICBsZXQgcG9zdHMgPSBbXTtcbiAgICBheGlvcy5nZXQoQVBJLnBvc3RzKVxuICAgICAgLnRoZW4oKHJlcykgPT4ge1xuICAgICAgICBjb25zb2xlLmxvZygncmVzJywgcmVzKTtcbiAgICAgICAgcG9zdHMgPSByZXMuZGF0YS5tYXAociA9PiB7XG4gICAgICAgICAgcmV0dXJuICh7XG4gICAgICAgICAgICBpZDogci5pZCxcbiAgICAgICAgICAgIHRpdGxlOiByLnRpdGxlLnJlbmRlcmVkLFxuICAgICAgICAgICAgY29udGVudDogci5jb250ZW50LnJlbmRlcmVkLFxuICAgICAgICAgICAgZXhjZXJwdDogci5leGNlcnB0LnJlbmRlcmVkXG4gICAgICAgICAgfSlcbiAgICAgICAgfSlcbiAgICB9KS50aGVuKCgpID0+IHtcbiAgICAgIHRoaXMuc2V0U3RhdGUoe1xuICAgICAgICBwb3N0c1xuICAgICAgfSlcbiAgICB9KVxuICAgIC5jYXRjaChlcnJvciA9PiBjb25zb2xlLmxvZygnZXJyb3I6JywgZXJyb3IpKVxuICB9XG4gIFxuICByZW5kZXIoKSB7XG4gICAgcmV0dXJuIChcbiAgICAgIDxQYWdlIGhlYWRUaXRsZT17J215LVBhZ2UnfT5cbiAgICAgICAgPGRpdj5cbiAgICAgICAgICA8aDE+UG9zdCBsaXN0PC9oMT5cbiAgICAgICAgICA8cD5zY29wZWQhPC9wPlxuICAgICAgICAgIDxCdXR0b24gc2Vjb25kYXJ5IG9uQ2xpY2s9e3RoaXMuZ2V0UG9zdHN9PkNsaWNrIEhlcmU8L0J1dHRvbj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPHA+ZmV0Y2ggcmVzcG9uc2U8L3A+XG4gICAgICAgICAgICB7dGhpcy5zdGF0ZS5wb3N0c1swXS5pZCAhPT0gbnVsbCA/IDxQb3N0c0xpc3QgcG9zdHM9e3RoaXMuc3RhdGUucG9zdHN9IC8+IDogJ+OCs+ODs+ODhuODs+ODhOOBjOOBguOCiuOBvuOBm+OCkycgfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiA2MDBweCkge1xuICAgICAgICAgICAgcCB7XG4gICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICB9XG4gICAgICAgIGB9PC9zdHlsZT5cbiAgICAgIDwvUGFnZT5cbiAgICApXG4gIH1cbn1cbiJdfQ== */\n/*@ sourceURL=/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/pages/index.js */",
+        css: "@media (max-width:600px){p.jsx-284175591{font-size:14px;}}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy95b3N1a2UudHN1dHN1bWkvRG9jdW1lbnRzL1RyYXZlbC9Qcm9qZWN0cy9GRUcvR0lUL1Byb2plY3RzL25leHQvbXlQYWdlL3BhZ2VzL2luZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXNEb0IsQUFJOEIsZUFDakIiLCJmaWxlIjoiL1VzZXJzL3lvc3VrZS50c3V0c3VtaS9Eb2N1bWVudHMvVHJhdmVsL1Byb2plY3RzL0ZFRy9HSVQvUHJvamVjdHMvbmV4dC9teVBhZ2UvcGFnZXMvaW5kZXguanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXG5pbXBvcnQgUGFnZSBmcm9tICcuLi9sYXlvdXRzL3BhZ2UnO1xuaW1wb3J0IGF4aW9zIGZyb20gJ2F4aW9zJztcbmltcG9ydCB7IEJ1dHRvbiB9IGZyb20gJ3NlbWFudGljLXVpLXJlYWN0J1xuaW1wb3J0IEFQSSBmcm9tICcuLi9jb25zdGFudHMvYXBpJztcbmltcG9ydCB7IFBvc3RzTGlzdCB9IGZyb20gJy4uL3V0aWwvcG9zdHNMaXN0JztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgVG9wIGV4dGVuZHMgUmVhY3QuQ29tcG9uZW50IHtcbiAgY29uc3RydWN0b3IocHJvcHMpIHtcbiAgICBzdXBlcihwcm9wcyk7XG4gICAgdGhpcy5zdGF0ZSA9IHtcbiAgICAgIHBvc3RzOiBbe1xuICAgICAgICBpZDogbnVsbFxuICAgICAgfV1cbiAgICB9XG4gIH1cblxuICBjb21wb25lbnREaWRNb3VudCgpIHtcbiAgICB0aGlzLmdldFBvc3RzKCk7XG4gIH1cblxuICBnZXRQb3N0cyA9ICgpID0+IHtcbiAgICBsZXQgcG9zdHMgPSBbXTtcbiAgICBheGlvcy5nZXQoQVBJLnBvc3RzKVxuICAgICAgLnRoZW4oKHJlcykgPT4ge1xuICAgICAgICBjb25zb2xlLmxvZygncmVzJywgcmVzKTtcbiAgICAgICAgcG9zdHMgPSByZXMuZGF0YS5tYXAociA9PiB7XG4gICAgICAgICAgcmV0dXJuICh7XG4gICAgICAgICAgICBpZDogci5pZCxcbiAgICAgICAgICAgIHRpdGxlOiByLnRpdGxlLnJlbmRlcmVkLFxuICAgICAgICAgICAgY29udGVudDogci5jb250ZW50LnJlbmRlcmVkLFxuICAgICAgICAgICAgZXhjZXJwdDogci5leGNlcnB0LnJlbmRlcmVkLFxuICAgICAgICAgICAgZGF0ZTogci5kYXRlLFxuICAgICAgICAgICAgbW9kaWZpZWQ6IHIubW9kaWZpZWQsXG4gICAgICAgICAgICBjYXRlZ29yaWVzOiByLmNhdGVnb3JpZXNcbiAgICAgICAgICB9KVxuICAgICAgICB9KVxuICAgIH0pLnRoZW4oKCkgPT4ge1xuICAgICAgdGhpcy5zZXRTdGF0ZSh7XG4gICAgICAgIHBvc3RzXG4gICAgICB9KVxuICAgIH0pXG4gICAgLmNhdGNoKGVycm9yID0+IGNvbnNvbGUubG9nKCdlcnJvcjonLCBlcnJvcikpXG4gIH1cbiAgXG4gIHJlbmRlcigpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPFBhZ2UgaGVhZFRpdGxlPXsnbXktUGFnZSd9PlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxoMT5Qb3N0IGxpc3Q8L2gxPlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICB7dGhpcy5zdGF0ZS5wb3N0c1swXS5pZCAhPT0gbnVsbCA/IDxQb3N0c0xpc3QgcG9zdHM9e3RoaXMuc3RhdGUucG9zdHN9IC8+IDogJ+OCs+ODs+ODhuODs+ODhOOBjOOBguOCiuOBvuOBm+OCkycgfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPHN0eWxlIGpzeD57YFxuICAgICAgICAgIEBtZWRpYSAobWF4LXdpZHRoOiA2MDBweCkge1xuICAgICAgICAgICAgcCB7XG4gICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTRweDtcbiAgICAgICAgICAgIH1cbiAgICAgICAgICB9XG4gICAgICAgIGB9PC9zdHlsZT5cbiAgICAgIDwvUGFnZT5cbiAgICApXG4gIH1cbn1cbiJdfQ== */\n/*@ sourceURL=/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/pages/index.js */",
         __self: this
       }));
     }
@@ -514,7 +539,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_html_parser__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_html_parser__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _postsList_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./postsList.scss */ "./util/postsList/postsList.scss");
+/* harmony import */ var _postsList_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_postsList_scss__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/util/postsList/index.js";
+
 
 
 
@@ -522,28 +550,28 @@ function PostsList(props) {
   var list = props.posts.map(function (p) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: p.id,
-      class: "p-3",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 6
-      },
-      __self: this
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      class: "p-3 border ".concat(_postsList_scss__WEBPACK_IMPORTED_MODULE_3___default.a.wrapper),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 7
       },
       __self: this
-    }, react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(p.id)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 8
       },
       __self: this
-    }, react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(p.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(p.id)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       __source: {
         fileName: _jsxFileName,
         lineNumber: 9
+      },
+      __self: this
+    }, react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(p.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
       },
       __self: this
     }, react_html_parser__WEBPACK_IMPORTED_MODULE_1___default()(p.excerpt), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
@@ -555,13 +583,13 @@ function PostsList(props) {
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 11
       },
       __self: this
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 11
       },
       __self: this
     }, "\u3082\u3063\u3068\u8AAD\u3080"))));
@@ -569,11 +597,24 @@ function PostsList(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: this
   }, list);
 }
+
+/***/ }),
+
+/***/ "./util/postsList/postsList.scss":
+/*!***************************************!*\
+  !*** ./util/postsList/postsList.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"wrapper": "_3Ac2XyJTtZ_ggLBBq2pGgg"
+};
 
 /***/ }),
 

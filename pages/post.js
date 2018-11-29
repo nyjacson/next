@@ -1,9 +1,8 @@
 import React from 'react'
 import Page from '../layouts/page';
 import axios from 'axios';
-import { Button } from 'semantic-ui-react'
 import API from '../constants/api';
-import { PostsList } from '../util/postsList';
+import { PostPage } from '../util/postPage';
 
 export default class Post extends React.Component {
   constructor(props) {
@@ -11,9 +10,7 @@ export default class Post extends React.Component {
     this.state = {
       post: {
         id: null,
-        title: null,
-        content: null,
-        excerpt: null        
+        title: null,     
       }
     }
   }
@@ -45,13 +42,9 @@ export default class Post extends React.Component {
     return (
       <Page headTitle={'my-Page | post'}>
         <div>
-          <h1>Post list</h1>
-          <p>scoped!</p>
-          <Button secondary onClick={() => this.getPost(this.props.url.query.id)}>Click Here</Button>
+          <h1>{this.state.post.title}</h1>
           <div>
-            <p>fetch response</p>
-            {/* <PostsList posts={this.state.posts} /> */}
-            {this.state.post.id}
+            <PostPage post={this.state.post} />
           </div>
         </div>
         <style jsx>{`

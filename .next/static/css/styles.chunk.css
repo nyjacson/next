@@ -1,5 +1,25 @@
+._1KlXYR8Dv4hcgg4fyaVIH3 {
+  height: 65px;
+  background: #000000;
+  color: #ffffff; }
+
 ._1W_V5nBGgi7UZCj-NcmFPa {
-  text-align: center; }
+  text-align: center;
+  height: 50px;
+  background: #000000;
+  color: #ffffff; }
+
+._2FYN8Ay7f8wSbblpK4kVXQ {
+  min-height: calc(100vh - 50px - 65px); }
+
+._3Ac2XyJTtZ_ggLBBq2pGgg {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: calc(50% - 10px);
+  display: inline-block; }
+  ._3Ac2XyJTtZ_ggLBBq2pGgg:nth-child(even) {
+    margin-right: 0; }
+
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

@@ -10,10 +10,7 @@ export default class Top extends React.Component {
     super(props);
     this.state = {
       posts: [{
-        id: null,
-        title: null,
-        content: null,
-        excerpt: null        
+        id: null
       }]
     }
   }
@@ -32,7 +29,10 @@ export default class Top extends React.Component {
             id: r.id,
             title: r.title.rendered,
             content: r.content.rendered,
-            excerpt: r.excerpt.rendered
+            excerpt: r.excerpt.rendered,
+            date: r.date,
+            modified: r.modified,
+            categories: r.categories
           })
         })
     }).then(() => {
@@ -48,10 +48,7 @@ export default class Top extends React.Component {
       <Page headTitle={'my-Page'}>
         <div>
           <h1>Post list</h1>
-          <p>scoped!</p>
-          <Button secondary onClick={this.getPosts}>Click Here</Button>
           <div>
-            <p>fetch response</p>
             {this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません' }
           </div>
         </div>
