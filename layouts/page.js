@@ -4,7 +4,9 @@ import Footer from '../components/footer'
 export default ({ headTitle, children }) => (
   <div>
     <Header headTitle={headTitle} />
-    { children }
+      <div class="ui container">
+        { children }
+      </div>
     <Footer />
   </div>
 )

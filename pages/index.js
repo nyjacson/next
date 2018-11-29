@@ -17,47 +17,52 @@ export default class Top extends React.Component {
       }]
     }
   }
+
+  componentDidMount() {
+    this.getPosts();
+  }
+
+  getPosts = () => {
+    let posts = [];
+    axios.get(API.posts)
+      .then((res) => {
+        console.log('res', res);
+        posts = res.data.map(r => {
+          return ({
+            id: r.id,
+            title: r.title.rendered,
+            content: r.content.rendered,
+            excerpt: r.excerpt.rendered
+          })
+        })
+    }).then(() => {
+      this.setState({
+        posts
+      })
+    })
+    .catch(error => console.log('error:', error))
+  }
   
   render() {
-    let posts = [];
-    const getPosts = () => {
-      axios.get(API.posts)
-        .then((res) => {
-          console.log('res', res);
-          posts = res.data.map(r => {
-            return ({
-              id: r.id,
-              title: r.title.rendered,
-              content: r.content.rendered,
-              excerpt: r.excerpt.rendered
-            })
-          })
-      }).then(() => {
-        this.setState({
-          posts
-        })
-      })
-      .catch(error => console.log('error:', error))
-    }
-
-  return (
-  <Page headTitle={'my-Page'}>
-    <div class="ui container">
-      <h1>Post list</h1>
-      <p>scoped!</p>
-      <Button secondary onClick={getPosts}>Click Here</Button>
-      <div>
-        <p>fetch response</p>
-        <PostsList posts={this.state.posts} />
-      </div>
-    </div>
-    <style jsx>{`
-      @media (max-width: 600px) {
-        p {
-          font-size: 14px;
-        }
-      }
-    `}</style>
-  </Page>
-)}
+    return (
+      <Page headTitle={'my-Page'}>
+        <div>
+          <h1>Post list</h1>
+          <p>scoped!</p>
+          <Button secondary onClick={this.getPosts}>Click Here</Button>
+          <div>
+            <p>fetch response</p>
+            {this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません' }
+          </div>
+        </div>
+        <style jsx>{`
+          @media (max-width: 600px) {
+            p {
+              font-size: 14px;
+            }
+          }
+        `}</style>
+      </Page>
+    )
+  }
 }
