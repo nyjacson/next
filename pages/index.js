@@ -1,7 +1,6 @@
-import React from 'react'
-import Page from '../layouts/page';
+import React from 'react';
 import axios from 'axios';
-import { Button } from 'semantic-ui-react'
+import Page from '../layouts/page';
 import API from '../constants/api';
 import { PostsList } from '../util/postsList';
 
@@ -9,10 +8,12 @@ export default class Top extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [{
-        id: null
-      }]
-    }
+      posts: [
+        {
+          id: null
+        }
+      ]
+    };
   }
 
   componentDidMount() {
@@ -21,11 +22,12 @@ export default class Top extends React.Component {
 
   getPosts = () => {
     let posts = [];
-    axios.get(API.posts)
-      .then((res) => {
+    axios
+      .get(API.posts)
+      .then(res => {
         console.log('res', res);
         posts = res.data.map(r => {
-          return ({
+          return {
             id: r.id,
             title: r.title.rendered,
             content: r.content.rendered,
@@ -33,33 +35,36 @@ export default class Top extends React.Component {
             date: r.date,
             modified: r.modified,
             categories: r.categories
-          })
-        })
-    }).then(() => {
-      this.setState({
-        posts
+          };
+        });
       })
-    })
-    .catch(error => console.log('error:', error))
-  }
-  
+      .then(() => {
+        this.setState({
+          posts
+        });
+      })
+      .catch(error => console.log('error:', error));
+  };
+
   render() {
     return (
-      <Page headTitle={'my-Page'}>
+      <Page headTitle="my-Page">
         <div>
           <h1>Post list</h1>
           <div>
-            {this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません' }
+            {this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}
           </div>
         </div>
-        <style jsx>{`
-          @media (max-width: 600px) {
-            p {
-              font-size: 14px;
+        <style jsx>
+          {`
+            @media (max-width: 600px) {
+              p {
+                font-size: 14px;
+              }
             }
-          }
-        `}</style>
+          `}
+        </style>
       </Page>
-    )
+    );
   }
 }
