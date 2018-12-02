@@ -1,5 +1,5 @@
 export const COMMON = {
-  HPName: 'wordperss-api'
-}
+  HPName: 'wordperss-api',
+};
 
 export default COMMON;

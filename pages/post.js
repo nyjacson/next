@@ -1,6 +1,6 @@
-import React from 'react'
-import Page from '../layouts/page';
+import React from 'react';
 import axios from 'axios';
+import Page from '../layouts/page';
 import API from '../constants/api';
 import { PostPage } from '../util/postPage';
 
@@ -10,51 +10,55 @@ export default class Post extends React.Component {
     this.state = {
       post: {
         id: null,
-        title: null,     
-      }
-    }
+        title: null,
+      },
+    };
   }
 
   componentDidMount() {
     this.getPost(this.props.url.query.id);
   }
 
-  getPost = (id) => {
+  getPost(id) {
     let post = {};
     axios.get(API.posts + id)
       .then((res) => {
         console.log('res', res);
-        return post = {
+        post = {
           id: res.data.id,
           title: res.data.title.rendered,
           content: res.data.content.rendered,
-          excerpt: res.data.excerpt.rendered
-        }
-    }).then(() => {
-      this.setState({
-        post
+          excerpt: res.data.excerpt.rendered,
+        };
+        return post;
+      }).then(() => {
+        this.setState({
+          post,
+        });
       })
-    })
-    .catch(error => console.log('error:', error))
+      .catch(error => console.log('error:', error));
   }
-  
+
   render() {
     return (
-      <Page headTitle={'my-Page | post'}>
+      <Page headTitle="my-Page | post">
         <div>
           <h1>{this.state.post.title}</h1>
           <div>
             <PostPage post={this.state.post} />
           </div>
         </div>
-        <style jsx>{`
+        <style jsx>
+          {`
           @media (max-width: 600px) {
             p {
               font-size: 14px;
             }
           }
-        `}</style>
+        `}
+
+        </style>
       </Page>
-    )
+    );
   }
 }
