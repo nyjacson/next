@@ -25,17 +25,12 @@ export default class BaseLayout extends React.Component<Props, State> {
   };
 
   render() {
-    const { headTitle, children, ...rest } = this.props;
-    const newChild = React.Children.map(children, child => {
-      return React.cloneElement(child, {
-        ...rest
-      });
-    });
+    const { headTitle, children } = this.props;
     return (
       <div>
         <Header headTitle={headTitle} onClickMenu={this.onToggleSidebar} />
         <div className={styles.mainWrapper}>
-          <div className="ui container py-4">{newChild}</div>
+          <div className="ui container py-4">{children}</div>
         </div>
         <Footer />
         {this.state.openSidebar && (

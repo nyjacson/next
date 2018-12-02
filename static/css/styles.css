@@ -313,3 +313,25 @@
 .mx-auto {
   margin-left: auto;
 }
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+  transform: translateY(30px);
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in, transform 300ms ease-out;
+  /* transition: transform 200ms ease-in 100ms; */
+  transform: translateY(0);
+}
+
+.fade-exit {
+  opacity: 0;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
