@@ -1,0 +1,23 @@
+.nav {
+  list-style: none;
+
+  > li {
+    font-size: 20px;
+    height: 45px;
+    line-height: 45px;
+
+    > a {
+      color: #fff;
+    }
+  }
+}
+
+.navWrapper {
+  width: 320px;
+  background: #222537;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 100;
+}

@@ -9,7 +9,7 @@
   ],
   "undefined": [
     {
-      "id": 9,
+      "id": 4,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -21,13 +21,7 @@
       "publicPath": "static/chunks/styles.js"
     },
     {
-      "id": 10,
-      "name": null,
-      "file": "static/chunks/styles.js",
-      "publicPath": "static/chunks/styles.js"
-    },
-    {
-      "id": 7,
+      "id": 6,
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
@@ -37,20 +31,24 @@
       "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
-    }
-  ],
-  "./footer.scss": [
+    },
     {
-      "id": "./components/footer/footer.scss",
-      "name": "./components/footer/footer.scss",
+      "id": 9,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 11,
+      "name": null,
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
   ],
-  "./page.scss": [
+  "./sidebar.scss": [
     {
-      "id": "./layouts/page.scss",
-      "name": "./layouts/page.scss",
+      "id": "./components/sidebar/sidebar.scss",
+      "name": "./components/sidebar/sidebar.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }
@@ -63,10 +61,26 @@
       "publicPath": "static/chunks/styles.js"
     }
   ],
+  "./footer.scss": [
+    {
+      "id": "./components/footer/footer.scss",
+      "name": "./components/footer/footer.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
   "./postPage.scss": [
     {
       "id": "./util/postPage/postPage.scss",
       "name": "./util/postPage/postPage.scss",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./page.scss": [
+    {
+      "id": "./layouts/page.scss",
+      "name": "./layouts/page.scss",
       "file": "static/chunks/styles.js",
       "publicPath": "static/chunks/styles.js"
     }

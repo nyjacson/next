@@ -1,5 +1,23 @@
 .headerWrapper {
   height: 65px;
-  background: #000000;
-  color: #ffffff;
+}
+
+.logo {
+  font-size: 35px;
+}
+
+.menuArea {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  > span {
+    margin-right: 10px;
+  }
+}
+
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

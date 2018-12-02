@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/components/footer/index.js";
 
 
-function Footer(props) {
+function Footer() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: _footer_scss__WEBPACK_IMPORTED_MODULE_1___default.a.wrapper,
     __source: {
@@ -151,7 +151,10 @@ function Footer(props) {
 /***/ (function(module, exports) {
 
 module.exports = {
-	"headerWrapper": "_1KlXYR8Dv4hcgg4fyaVIH3"
+	"headerWrapper": "_1KlXYR8Dv4hcgg4fyaVIH3",
+	"logo": "_3AiP2Qi2bk0yE7U66_UFGO",
+	"menuArea": "_3snn3EtbjMsUAkDq7CKohq",
+	"headerInner": "_2ChZfW1SwZQw6WgXdoc90D"
 };
 
 /***/ }),
@@ -168,44 +171,150 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Header; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "next/link");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _constants_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../constants/common */ "./constants/common.js");
-/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header.scss */ "./components/header/header.scss");
-/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_header_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _svg_iconMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../svg/iconMenu */ "./components/svg/iconMenu.js");
+/* harmony import */ var _meta__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../meta */ "./components/meta/index.js");
+/* harmony import */ var _constants_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../constants/common */ "./constants/common.js");
+/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./header.scss */ "./components/header/header.scss");
+/* harmony import */ var _header_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_header_scss__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/components/header/index.js";
 
 
 
 
 
-function Header(props) {
+
+function Header(_ref) {
+  var headTitle = _ref.headTitle,
+      onClickMenu = _ref.onClickMenu;
+
+  var onMouseEnter = function onMouseEnter(e) {
+    console.log('enter');
+    console.log(e.target);
+  };
+
+  var onMouseLeave = function onMouseLeave(e) {
+    console.log('leave');
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 18
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_meta__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    headTitle: headTitle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 19
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+    className: _header_scss__WEBPACK_IMPORTED_MODULE_5___default.a.headerWrapper,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "ui container py-3",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _header_scss__WEBPACK_IMPORTED_MODULE_5___default.a.headerInner,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 22
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: {
+      pathname: '/'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: _header_scss__WEBPACK_IMPORTED_MODULE_5___default.a.logo,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 23
+    },
+    __self: this
+  }, "Logo")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: _header_scss__WEBPACK_IMPORTED_MODULE_5___default.a.menuArea,
+    onClick: onClickMenu,
+    onMouseEnter: onMouseEnter,
+    onMouseLeave: onMouseLeave,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, "Menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_svg_iconMenu__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }))))));
+}
+Header.defaultProps = {
+  headTitle: 'COMMON.HPName'
+};
+
+/***/ }),
+
+/***/ "./components/meta/index.js":
+/*!**********************************!*\
+  !*** ./components/meta/index.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Meta; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/components/meta/index.js";
+
+
+function Meta(_ref) {
+  var headTitle = _ref.headTitle;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("title", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 6
     },
     __self: this
-  }, props.headTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
+  }, headTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
     name: "viewport",
     content: "initial-scale=1.0, width=device-width",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 7
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -213,7 +322,7 @@ function Header(props) {
     href: "/static/css/semantic.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 8
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
@@ -221,43 +330,242 @@ function Header(props) {
     href: "/static/css/styles.css",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 9
     },
     __self: this
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-    class: _header_scss__WEBPACK_IMPORTED_MODULE_4___default.a.headerWrapper,
+  }));
+}
+
+/***/ }),
+
+/***/ "./components/sidebar/index.js":
+/*!*************************************!*\
+  !*** ./components/sidebar/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _sidebar_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./sidebar.scss */ "./components/sidebar/sidebar.scss");
+/* harmony import */ var _sidebar_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_sidebar_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/components/sidebar/index.js";
+
+
+
+
+var Sidebar = function Sidebar() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: _sidebar_scss__WEBPACK_IMPORTED_MODULE_2___default.a.navWrapper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 6
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "ui container py-3",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    className: _sidebar_scss__WEBPACK_IMPORTED_MODULE_2___default.a.nav,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 7
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: {
       pathname: '/'
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 8
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 8
     },
     __self: this
-  }, "Logo")))));
-}
-Header.defaultProps = {
-  headTitle: 'COMMON.HPName'
+  }, "Home"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: {
+      pathname: '/'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, "About"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: {
+      pathname: '/'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, "Service"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    href: {
+      pathname: '/'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }, "Blog")))));
 };
+
+/* harmony default export */ __webpack_exports__["default"] = (Sidebar);
+
+/***/ }),
+
+/***/ "./components/sidebar/sidebar.scss":
+/*!*****************************************!*\
+  !*** ./components/sidebar/sidebar.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = {
+	"nav": "_1iaWLuLVLXl8xTLo6427Io",
+	"navWrapper": "_3E_091QIilPGYmwcLuEIZM"
+};
+
+/***/ }),
+
+/***/ "./components/svg/iconMenu.js":
+/*!************************************!*\
+  !*** ./components/svg/iconMenu.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/components/svg/iconMenu.js";
+
+
+var IconMenu = function IconMenu() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    width: "17px",
+    height: "15px",
+    viewBox: "0 0 17 15",
+    version: "1.1",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+    id: "Symbols",
+    stroke: "none",
+    "stroke-width": "1",
+    fill: "none",
+    "fill-rule": "evenodd",
+    "stroke-linecap": "square",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+    id: "Menu",
+    transform: "translate(-52.000000, -1.000000)",
+    stroke: "#343434",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+    id: "icon-menu",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("g", {
+    transform: "translate(52.000000, 0.000000)",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M0.5,1.5 L16.5,1.5",
+    id: "Line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M0.5,8 L16.5,8",
+    id: "Line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: this
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M0.5,15 L16.5,15",
+    id: "Line",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
+  }))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (IconMenu);
 
 /***/ }),
 
@@ -305,55 +613,133 @@ var COMMON = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AppPage; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/header */ "./components/header/index.js");
 /* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/footer */ "./components/footer/index.js");
-/* harmony import */ var _page_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./page.scss */ "./layouts/page.scss");
-/* harmony import */ var _page_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_page_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/sidebar */ "./components/sidebar/index.js");
+/* harmony import */ var _page_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./page.scss */ "./layouts/page.scss");
+/* harmony import */ var _page_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_page_scss__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Projects/next/myPage/layouts/page.js";
 
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
-  var headTitle = _ref.headTitle,
-      children = _ref.children;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    headTitle: headTitle,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: _page_scss__WEBPACK_IMPORTED_MODULE_3___default.a.mainWrapper,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    class: "ui container",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: this
-  }, children)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: this
-  }));
-});
+
+
+
+
+var AppPage =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(AppPage, _React$Component);
+
+  function AppPage(props) {
+    var _this;
+
+    _classCallCheck(this, AppPage);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AppPage).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onToggleSidebar", function () {
+      _this.setState({
+        openSidebar: !_this.state.openSidebar
+      });
+
+      console.log('clicked');
+    });
+
+    _this.state = {
+      openSidebar: false
+    };
+    return _this;
+  }
+
+  _createClass(AppPage, [{
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        headTitle: this.props.headTitle,
+        onClickMenu: this.onToggleSidebar,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _page_scss__WEBPACK_IMPORTED_MODULE_4___default.a.mainWrapper,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "ui container py-4",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, this.props.children)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }), this.state.openSidebar && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 34
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _page_scss__WEBPACK_IMPORTED_MODULE_4___default.a.sidebarDim,
+        onClick: this.onToggleSidebar,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 35
+        },
+        __self: this
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 36
+        },
+        __self: this
+      })));
+    }
+  }]);
+
+  return AppPage;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+
 
 /***/ }),
 
@@ -365,7 +751,8 @@ var _jsxFileName = "/Users/yosuke.tsutsumi/Documents/Travel/Projects/FEG/GIT/Pro
 /***/ (function(module, exports) {
 
 module.exports = {
-	"mainWrapper": "_2FYN8Ay7f8wSbblpK4kVXQ"
+	"mainWrapper": "_2FYN8Ay7f8wSbblpK4kVXQ",
+	"sidebarDim": "_2hlbW7tuHx88cLxTblpYsD"
 };
 
 /***/ }),

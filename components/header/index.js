@@ -1,21 +1,28 @@
 import React from 'react'
-import Head from 'next/head'
 import Link from 'next/link';
+import IconMenu from '../svg/iconMenu';
+import Meta from '../meta';
 import COMMON from '../../constants/common';
 import styles from './header.scss';
 
-export default function Header(props) {
+export default function Header({headTitle, onClickMenu}) {
+  const onMouseEnter = e => {
+    console.log('enter')
+    console.log(e.target)
+  }
+
+  const onMouseLeave = e => {
+    console.log('leave')
+  }
   return (
     <div>
-      <Head>
-        <title>{props.headTitle}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link rel="stylesheet" href="/static/css/semantic.css"></link>
-        <link rel="stylesheet" href="/static/css/styles.css"></link>
-      </Head>
-      <header class={styles.headerWrapper}>
-        <div class="ui container py-3">
-        <Link href={{ pathname: '/'}}><a>Logo</a></Link>
+      <Meta headTitle={headTitle} />
+      <header className={styles.headerWrapper}>
+        <div className="ui container py-3">
+          <div className={styles.headerInner}>
+            <Link href={{ pathname: '/'}}><a className={styles.logo}>Logo</a></Link>
+            <a className={styles.menuArea} onClick={onClickMenu} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}><span>Menu</span><IconMenu /></a>
+          </div>
         </div>
       </header>
     </div>
