@@ -6,39 +6,61 @@ import IconMenu from '../svg/iconMenu';
 import Meta from '../meta';
 import styles from './header.scss';
 
-export default function Header({ headTitle, onClickMenu }: Object) {
-  const onMouseEnter = e => {
-    console.log('enter');
-    console.log(e.target);
+type Props = {
+  headTitle: string,
+  onClickMenu: Function
+};
+
+type State = {
+  onMenu: boolean
+};
+
+export default class Header extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      onMenu: false
+    };
+  }
+
+  onMouseEnter = () => {
+    this.setState({
+      onMenu: true
+    });
   };
 
-  const onMouseLeave = () => {
-    console.log('leave');
+  onMouseLeave = () => {
+    this.setState({
+      onMenu: false
+    });
   };
-  return (
-    <div>
-      <Meta headTitle={headTitle} />
-      <header className={styles.headerWrapper}>
-        <div className="ui container py-3">
-          <div className={styles.headerInner}>
-            <Link href={{ pathname: '/' }}>
-              <a href className={styles.logo}>
-                Logo
+
+  render() {
+    return (
+      <div>
+        <Meta headTitle={this.props.headTitle || 'test'} />
+        <header className={styles.headerWrapper}>
+          <div className="ui container py-3">
+            <div className={styles.headerInner}>
+              <Link href={{ pathname: '/' }}>
+                <a href className={styles.logo}>
+                  Logo
+                </a>
+              </Link>
+              <a
+                href
+                className={styles.menuArea}
+                onClick={this.props.onClickMenu}
+                onMouseEnter={this.onMouseEnter}
+                onMouseLeave={this.onMouseLeave}
+              >
+                <span>Menu</span>
+                <IconMenu onHover={this.state.onMenu} />
               </a>
-            </Link>
-            <a
-              href
-              className={styles.menuArea}
-              onClick={onClickMenu}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <span>Menu</span>
-              <IconMenu />
-            </a>
+            </div>
           </div>
-        </div>
-      </header>
-    </div>
-  );
+        </header>
+      </div>
+    );
+  }
 }

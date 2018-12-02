@@ -2,7 +2,6 @@
 
 import React from 'react';
 import axios from 'axios';
-import BaseLayout from '../layouts/baseLayout';
 import API from '../constants/api';
 import { PostPage } from '../util/postPage';
 
@@ -54,12 +53,10 @@ export default class Post extends React.Component<Props, State> {
 
   render() {
     return (
-      <BaseLayout headTitle="my-Page | post">
+      <div>
+        <h1>{this.state.post.title}</h1>
         <div>
-          <h1>{this.state.post.title}</h1>
-          <div>
-            <PostPage post={this.state.post} />
-          </div>
+          <PostPage post={this.state.post} />
         </div>
         <style jsx>
           {`
@@ -70,7 +67,7 @@ export default class Post extends React.Component<Props, State> {
             }
           `}
         </style>
-      </BaseLayout>
+      </div>
     );
   }
 }

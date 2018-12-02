@@ -18,10 +18,7 @@ export default class BaseLayout extends React.Component<Props, State> {
   }
 
   onToggleSidebar = () => {
-    this.setState(prevState => {
-      return { openSidebar: !prevState };
-    });
-    console.log('clicked');
+    this.setState(({ openSidebar }) => ({ openSidebar: !openSidebar }));
   };
 
   render() {

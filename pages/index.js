@@ -2,7 +2,6 @@
 
 import React from 'react';
 import axios from 'axios';
-import BaseLayout from '../layouts/baseLayout';
 import API from '../constants/api';
 import { PostsList } from '../util/postsList';
 
@@ -55,13 +54,9 @@ export default class Top extends React.Component<Props, State> {
 
   render() {
     return (
-      <BaseLayout headTitle="my-Page">
-        <div>
-          <h1>Post list</h1>
-          <div>
-            {this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}
-          </div>
-        </div>
+      <div>
+        <h1>Post list</h1>
+        <div>{this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}</div>
         <style jsx>
           {`
             @media (max-width: 600px) {
@@ -71,7 +66,7 @@ export default class Top extends React.Component<Props, State> {
             }
           `}
         </style>
-      </BaseLayout>
+      </div>
     );
   }
 }

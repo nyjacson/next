@@ -1,6 +1,7 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import BaseLayout from '../layouts/baseLayout';
 
 export default class MyApp extends App {
   render() {
@@ -8,13 +9,13 @@ export default class MyApp extends App {
     console.log('router', this.props.router.asPath);
     return (
       <Container>
-        <div>
+        <BaseLayout>
           <TransitionGroup>
             <CSSTransition key={router.asPath} timeout={500} classNames="fade">
               <Component {...pageProps} {...router} />
             </CSSTransition>
           </TransitionGroup>
-        </div>
+        </BaseLayout>
       </Container>
     );
   }
