@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "flow": "flow",
-    "lint": "eslint . --fix"
+    "lintfix": "eslint . --fix"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
