@@ -1,10 +1,20 @@
+// @flow
+
 import React from 'react';
 import axios from 'axios';
-import Page from '../layouts/page';
+import BaseLayout from '../layouts/baseLayout';
 import API from '../constants/api';
 import { PostsList } from '../util/postsList';
 
-export default class Top extends React.Component {
+type Props = {
+  pathname: string
+};
+
+type State = {
+  posts: Array<any>
+};
+
+export default class Top extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +57,7 @@ export default class Top extends React.Component {
 
   render() {
     return (
-      <Page headTitle="my-Page">
+      <BaseLayout headTitle="my-Page" pathname={this.props.pathname}>
         <div>
           <h1>Post list</h1>
           <div>
@@ -63,7 +73,7 @@ export default class Top extends React.Component {
             }
           `}
         </style>
-      </Page>
+      </BaseLayout>
     );
   }
 }
