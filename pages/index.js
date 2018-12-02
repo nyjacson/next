@@ -25,7 +25,6 @@ export default class Top extends React.Component {
     axios
       .get(API.posts)
       .then(res => {
-        console.log('res', res);
         posts = res.data.map(r => {
           return {
             id: r.id,
