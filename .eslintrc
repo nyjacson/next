@@ -59,6 +59,7 @@
     "react/jsx-indent": "off",
     "react/jsx-key": "warn",
     "react/prefer-stateless-function": "warn",
+    "react/destructuring-assignment": "never",
     "spaced-comment": "off",
     "prettier/prettier": [
       "error",
