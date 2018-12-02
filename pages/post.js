@@ -9,8 +9,7 @@ import { PostPage } from '../util/postPage';
 type Props = {
   query: {
     id: string
-  },
-  pathname: string
+  }
 };
 
 type State = {
@@ -55,7 +54,7 @@ export default class Post extends React.Component<Props, State> {
 
   render() {
     return (
-      <BaseLayout headTitle="my-Page | post" pathname={this.props.pathname}>
+      <BaseLayout headTitle="my-Page | post">
         <div>
           <h1>{this.state.post.title}</h1>
           <div>

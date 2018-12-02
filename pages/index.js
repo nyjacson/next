@@ -6,9 +6,7 @@ import BaseLayout from '../layouts/baseLayout';
 import API from '../constants/api';
 import { PostsList } from '../util/postsList';
 
-type Props = {
-  pathname: string
-};
+type Props = {};
 
 type State = {
   posts: Array<any>
@@ -57,7 +55,7 @@ export default class Top extends React.Component<Props, State> {
 
   render() {
     return (
-      <BaseLayout headTitle="my-Page" pathname={this.props.pathname}>
+      <BaseLayout headTitle="my-Page">
         <div>
           <h1>Post list</h1>
           <div>

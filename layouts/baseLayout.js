@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Sidebar from '../components/sidebar';
@@ -8,8 +7,7 @@ import styles from './baseLayout.scss';
 
 type Props = {
   headTitle: string,
-  children: any,
-  pathname: string
+  children: any
 };
 export default class BaseLayout extends React.Component<Props, State> {
   constructor(props) {
@@ -33,16 +31,11 @@ export default class BaseLayout extends React.Component<Props, State> {
         ...rest
       });
     });
-    console.log('key---', this.props.pathname);
     return (
       <div>
         <Header headTitle={headTitle} onClickMenu={this.onToggleSidebar} />
         <div className={styles.mainWrapper}>
-          <TransitionGroup>
-            <CSSTransition timeout={1000} classNames="fade" key={this.props.pathname}>
-              <div className="ui container py-4">{newChild}</div>
-            </CSSTransition>
-          </TransitionGroup>
+          <div className="ui container py-4">{newChild}</div>
         </div>
         <Footer />
         {this.state.openSidebar && (
