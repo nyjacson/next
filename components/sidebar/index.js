@@ -11,56 +11,77 @@ type Props = {
   open: boolean
 };
 
-const Sidebar = (props: Props) => {
-  const menus = [
-    {
-      name: 'Home',
-      path: '/'
-    },
-    {
-      name: 'About',
-      path: '/'
-    },
-    {
-      name: 'Service',
-      path: '/'
-    },
-    {
-      name: 'Blog',
-      path: '/'
-    }
-  ];
+export default class Sidebar extends React.Component<Props, State> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      slideFadeIn: false
+    };
+  }
 
-  const menuRendered = menus.map(m => {
+  render() {
+    const menus = [
+      {
+        name: 'Home',
+        path: '/'
+      },
+      {
+        name: 'About',
+        path: '/'
+      },
+      {
+        name: 'Service',
+        path: '/'
+      },
+      {
+        name: 'Blog',
+        path: '/'
+      }
+    ];
+
+    const menuRendered = menus.map(m => {
+      return (
+        <li key={m.name} className={`${styles.li} ${this.state.slideFadeIn ? styles.slideFadeIn : ''}`}>
+          <Link href={{ pathname: m.path }}>
+            <a href>{m.name}</a>
+          </Link>
+        </li>
+      );
+    });
     return (
-      <li key={m.name}>
-        <Link href={{ pathname: m.path }}>
-          <a href>{m.name}</a>
-        </Link>
-      </li>
-    );
-  });
-  return (
-    <div>
-      {props.open ? (
-        <a href className={styles.sidebarDim} onClick={props.onToggleSlider}>
-          &nbsp;
-        </a>
-      ) : null}
-      <CSSTransition in={props.open} timeout={200} classNames="slideFade">
-        <nav className={`none ${styles.navWrapper}`}>
-          <ul className={styles.nav}>
-            <div className={styles.crossIcon}>
-              <a href onClick={props.onToggleSlider}>
-                <IconCross />
-              </a>
+      <div>
+        {this.props.open ? (
+          <a href className={styles.sidebarDim} onClick={this.props.onToggleSlider}>
+            &nbsp;
+          </a>
+        ) : null}
+        <CSSTransition
+          in={this.props.open}
+          timeout={200}
+          classNames="slideFade"
+          onEntered={() => {
+            this.setState({
+              slideFadeIn: true
+            });
+          }}
+          onExit={() => {
+            this.setState({
+              slideFadeIn: false
+            });
+          }}
+        >
+          <nav className={`none ${styles.navWrapper}`}>
+            <div className={styles.nav}>
+              <div className={styles.crossIcon}>
+                <a href onClick={this.props.onToggleSlider}>
+                  <IconCross />
+                </a>
+              </div>
+              <div>{menuRendered}</div>
             </div>
-            {menuRendered}
-          </ul>
-        </nav>
-      </CSSTransition>
-    </div>
-  );
-};
-
-export default Sidebar;
+          </nav>
+        </CSSTransition>
+      </div>
+    );
+  }
+}
