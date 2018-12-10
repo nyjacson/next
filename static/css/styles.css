@@ -1,5 +1,28 @@
+body, a {
+  color: #343434;
+}
+
+a:hover {
+  color: #EA625F;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.titleContentsPadding {
+  padding-left: 175px;
+  padding-right: 175px;
+}
+
 .more-link {
   display: none
+}
+
+.none {
+  display: none;
 }
 
 .m-0 {
@@ -323,7 +346,6 @@
 .fade-enter.fade-enter-active {
   opacity: 1;
   transition: opacity 300ms ease-in, transform 300ms ease-out;
-  /* transition: transform 200ms ease-in 100ms; */
   transform: translateY(0);
 }
 
@@ -334,4 +356,26 @@
 .fade-exit.fade-exit-active {
   opacity: 0;
   transition: opacity 300ms ease-in;
+}
+
+.slideFade-enter {
+  width: 0 !important;
+  display: block;
+}
+
+.slideFade-enter-done {
+  width: inherit;
+  transition: all 200ms ease-in;
+  display: block;
+}
+
+.slideFade-exit {
+  width: inherit;
+  display: block;
+}
+
+.slideFade-exit-done {
+  width: 0 !important;
+  transition: all 150ms ease-in;
+  display: block;
 }

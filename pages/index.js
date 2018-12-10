@@ -54,7 +54,7 @@ export default class Top extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div className="titleContentsPadding">
         <h1>Post list</h1>
         <div>{this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}</div>
         <style jsx>

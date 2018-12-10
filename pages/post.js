@@ -53,7 +53,7 @@ export default class Post extends React.Component<Props, State> {
 
   render() {
     return (
-      <div>
+      <div className="titleContentsPadding">
         <h1>{this.state.post.title}</h1>
         <div>
           <PostPage post={this.state.post} />

@@ -1,6 +1,9 @@
+// @flow
+
+import React from 'react';
 import Head from 'next/head';
 
-export default function Meta({ headTitle }) {
+export default function Meta({ headTitle }: any) {
   return (
     <Head>
       <title>{headTitle}</title>

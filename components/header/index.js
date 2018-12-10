@@ -54,7 +54,7 @@ export default class Header extends React.Component<Props, State> {
                 onMouseEnter={this.onMouseEnter}
                 onMouseLeave={this.onMouseLeave}
               >
-                <span>Menu</span>
+                <span>MENU</span>
                 <IconMenu onHover={this.state.onMenu} />
               </a>
             </div>

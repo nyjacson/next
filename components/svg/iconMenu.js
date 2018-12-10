@@ -6,7 +6,7 @@ import { Motion, spring } from 'react-motion';
 
 const IconMenu = ({ onHover }: boolean) => {
   const defaultStyle = {
-    pathL: 16.5
+    pathL: spring(16.5, { stiffness: 250 })
   };
 
   const onHoverStyle = {

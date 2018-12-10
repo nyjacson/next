@@ -17,7 +17,7 @@ export default class BaseLayout extends React.Component<Props, State> {
     };
   }
 
-  onToggleSidebar = () => {
+  onToggleSlider = () => {
     this.setState(({ openSidebar }) => ({ openSidebar: !openSidebar }));
   };
 
@@ -25,19 +25,12 @@ export default class BaseLayout extends React.Component<Props, State> {
     const { headTitle, children } = this.props;
     return (
       <div>
-        <Header headTitle={headTitle} onClickMenu={this.onToggleSidebar} />
+        <Header headTitle={headTitle} onClickMenu={this.onToggleSlider} />
         <div className={styles.mainWrapper}>
           <div className="ui container py-4">{children}</div>
         </div>
         <Footer />
-        {this.state.openSidebar && (
-          <div>
-            <a href className={styles.sidebarDim} onClick={this.onToggleSidebar}>
-              &nbsp;
-            </a>
-            <Sidebar />
-          </div>
-        )}
+        <Sidebar open={this.state.openSidebar} onToggleSlider={this.onToggleSlider} />
       </div>
     );
   }

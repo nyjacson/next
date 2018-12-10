@@ -1,15 +1,58 @@
+// @flow
+
+import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import Link from 'next/link';
 import styles from './sidebar.scss';
 
-const Sidebar = () => (
-  <nav className={styles.navWrapper}>
-    <ul className={styles.nav}>
-      <li><Link href={{ pathname: '/' }}><a>Home</a></Link></li>
-      <li><Link href={{ pathname: '/' }}><a>About</a></Link></li>
-      <li><Link href={{ pathname: '/' }}><a>Service</a></Link></li>
-      <li><Link href={{ pathname: '/' }}><a>Blog</a></Link></li>
-    </ul>
-  </nav>
-);
+type Props = {
+  onToggleSlider: Function,
+  open: boolean
+};
+
+const Sidebar = (props: Props) => {
+  const menus = [
+    {
+      name: 'Home',
+      path: '/'
+    },
+    {
+      name: 'About',
+      path: '/'
+    },
+    {
+      name: 'Service',
+      path: '/'
+    },
+    {
+      name: 'Blog',
+      path: '/'
+    }
+  ];
+
+  const menuRendered = menus.map(m => {
+    return (
+      <li key={m.name}>
+        <Link href={{ pathname: m.path }}>
+          <a href>{m.name}</a>
+        </Link>
+      </li>
+    );
+  });
+  return (
+    <div>
+      {props.open ? (
+        <a href className={styles.sidebarDim} onClick={props.onToggleSlider}>
+          &nbsp;
+        </a>
+      ) : null}
+      <CSSTransition in={props.open} timeout={200} classNames="slideFade">
+        <nav className={`none ${styles.navWrapper}`}>
+          <ul className={styles.nav}>{menuRendered}</ul>
+        </nav>
+      </CSSTransition>
+    </div>
+  );
+};
 
 export default Sidebar;
