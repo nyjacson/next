@@ -3,6 +3,7 @@
 import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Link from 'next/link';
+import IconCross from '../svg/iconCross';
 import styles from './sidebar.scss';
 
 type Props = {
@@ -48,7 +49,14 @@ const Sidebar = (props: Props) => {
       ) : null}
       <CSSTransition in={props.open} timeout={200} classNames="slideFade">
         <nav className={`none ${styles.navWrapper}`}>
-          <ul className={styles.nav}>{menuRendered}</ul>
+          <ul className={styles.nav}>
+            <div className={styles.crossIcon}>
+              <a href onClick={props.onToggleSlider}>
+                <IconCross />
+              </a>
+            </div>
+            {menuRendered}
+          </ul>
         </nav>
       </CSSTransition>
     </div>

@@ -1,0 +1,21 @@
+.path1 {
+  stroke: #ffffff;
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+  transition: stroke-dashoffset 0.3s ease-in 0.2s;
+}
+
+.path2 {
+  stroke: #ffffff;
+  stroke-dasharray: 25;
+  stroke-dashoffset: 25;
+  transition: stroke-dashoffset 0.3s ease-in;
+}
+
+.svg:hover .path1 {
+ stroke-dashoffset: 0; 
+}
+
+.svg:hover .path2 {
+  stroke-dashoffset: 0; 
+ }

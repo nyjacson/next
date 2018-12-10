@@ -1,7 +1,8 @@
 .nav {
   list-style: none;
-  padding: 50px;
+  padding: 30px 30px 50px 50px;
   margin: 0;
+  position: relative;
 
   > li {
     font-size: 18px;
@@ -22,6 +23,10 @@
   right: 0;
   height: 100vh;
   z-index: 100;
+}
+
+.crossIcon {
+  text-align: right
 }
 
 .sidebarDim {
