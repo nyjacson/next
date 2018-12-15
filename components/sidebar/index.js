@@ -11,11 +11,18 @@ type Props = {
   open: boolean
 };
 
+type State = {
+  slideFadeIn: boolean
+};
+
 export default class Sidebar extends React.Component<Props, State> {
   constructor(props) {
     super(props);
+    this.dimRef = React.createRef();
+    this.stokerRef = React.createRef();
     this.state = {
-      slideFadeIn: false
+      slideFadeIn: false,
+      showStoker: false
     };
   }
 
@@ -39,9 +46,29 @@ export default class Sidebar extends React.Component<Props, State> {
       }
     ];
 
+    if (this.state.slideFadeIn) {
+      this.dimRef.current.addEventListener('mousemove', e => {
+        this.stokerRef.current.style.left = `${e.clientX - 10}px`;
+        this.stokerRef.current.style.top = `${e.clientY - 10}px`;
+      });
+      this.dimRef.current.addEventListener('mouseenter', () => {
+        this.setState({
+          showStoker: true
+        });
+      });
+      this.dimRef.current.addEventListener('mouseleave', () => {
+        this.setState({
+          showStoker: false
+        });
+      });
+    }
+
     const menuRendered = menus.map(m => {
       return (
-        <li key={m.name} className={`${styles.li} ${this.state.slideFadeIn ? styles.slideFadeIn : ''}`}>
+        <li
+          key={m.name}
+          className={`${styles.li} ${this.state.slideFadeIn ? styles.slideFadeIn : styles.slideFadeOut}`}
+        >
           <Link href={{ pathname: m.path }}>
             <a href>{m.name}</a>
           </Link>
@@ -51,8 +78,15 @@ export default class Sidebar extends React.Component<Props, State> {
     return (
       <div>
         {this.props.open ? (
-          <a href className={styles.sidebarDim} onClick={this.props.onToggleSlider}>
+          <a href className={styles.sidebarDim} onClick={this.props.onToggleSlider} ref={this.dimRef}>
             &nbsp;
+            <i
+              ref={this.stokerRef}
+              className={`${styles.stoker} ${this.state.showStoker ? styles.showStoker : ''}`}
+              styles={{ left: this.state.xPos, top: this.state.yPos }}
+            >
+              <IconCross disableHover />
+            </i>
           </a>
         ) : null}
         <CSSTransition

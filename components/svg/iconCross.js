@@ -3,9 +3,15 @@
 import React from 'react';
 import styles from './iconCross.scss';
 
-const IconCross = () => {
+const IconCross = (props: any) => {
   return (
-    <svg width="17px" height="15px" viewBox="0 0 17 15" version="1.1" className={styles.svg}>
+    <svg
+      width="17px"
+      height="15px"
+      viewBox="0 0 17 15"
+      version="1.1"
+      className={`${styles.svg} ${props.disableHover ? '' : styles.hoverEnable}`}
+    >
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" strokeLinecap="square">
         <g transform="translate(-1233.000000, -33.000000)" stroke="#979797">
           <g transform="translate(1234.000000, 33.000000)">

@@ -14,7 +14,7 @@
     color: #fff;
 
     &:hover {
-      color: red;
+      color: #EA625F;
     }
   }
 }
@@ -44,6 +44,16 @@
   cursor: pointer;
 }
 
+.stoker {
+  position: absolute;
+  opacity: 0;
+  transition: left 100ms ease-out 0s, top 100ms ease-out 0s;
+}
+
+.showStoker {
+  opacity: 1;
+}
+
 .li {
   opacity: 0;
   transition: opacity 0.5s linear;
@@ -57,5 +67,9 @@
 
 .slideFadeIn {
   opacity: 1;
+}
+
+.slideFadeOut {
+  opacity: 0;
 }
  

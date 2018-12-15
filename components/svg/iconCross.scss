@@ -12,10 +12,10 @@
   transition: stroke-dashoffset 0.3s ease-in;
 }
 
-.svg:hover .path1 {
+.hoverEnable.svg:hover .path1 {
  stroke-dashoffset: 0; 
 }
 
-.svg:hover .path2 {
+.hoverEnable.svg:hover .path2 {
   stroke-dashoffset: 0; 
  }
