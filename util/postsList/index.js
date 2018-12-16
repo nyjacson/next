@@ -17,7 +17,10 @@ export function PostsList(props: Props) {
       <div>
         {ReactHtmlParser(p.excerpt)}
         <Link href={{ pathname: 'post', query: { id: p.id } }}>
-          <a href>もっと読む</a>
+          <a href className={styles.link}>
+            <span className={styles.bar} />
+            もっと読む
+          </a>
         </Link>
       </div>
     </div>

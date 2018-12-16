@@ -70,7 +70,9 @@ export default class Sidebar extends React.Component<Props, State> {
           className={`${styles.li} ${this.state.slideFadeIn ? styles.slideFadeIn : styles.slideFadeOut}`}
         >
           <Link href={{ pathname: m.path }}>
-            <a href>{m.name}</a>
+            <a href onClick={this.props.onToggleSlider}>
+              {m.name}
+            </a>
           </Link>
         </li>
       );

@@ -34,6 +34,7 @@
 }
 
 .sidebarDim {
+  transition: all 500ms ease-out;
   width: 100vw;
   height: 100vh;
   position: fixed;

@@ -8,3 +8,25 @@
     margin-right: 0;
   }
 }
+
+.bar {
+  width: 35px;
+  border-bottom: solid 1px #343434;
+  height: 2px;
+  margin-right: 10px;
+  transition: width 0.15s ease-in;
+  opacity: 0.5;
+}
+
+.link {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    .bar {
+      width: 45px;
+      opacity: 1;
+    }
+  }
+}
