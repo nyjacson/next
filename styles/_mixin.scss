@@ -1,0 +1,17 @@
+@mixin mq_SP() {
+  @media all and (max-width: $screenSize-SP-MAX) {
+    @content;
+  }
+}
+
+@mixin mq_TL() {
+  @media all and (max-width: $screenSize-TL-MAX) {
+    @content;
+  }
+}
+
+@mixin mq_PC() {
+  @media all and (min-width: $screenSize-PC-MIN) {
+    @content;
+  }
+}

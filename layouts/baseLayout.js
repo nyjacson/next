@@ -26,9 +26,7 @@ export default class BaseLayout extends React.Component<Props, State> {
     return (
       <div>
         <Header headTitle={headTitle} onClickMenu={this.onToggleSlider} />
-        <div className={styles.mainWrapper}>
-          <div className="ui container py-4">{children}</div>
-        </div>
+        <div className={styles.mainWrapper}>{children}</div>
         <Footer />
         <Sidebar open={this.state.openSidebar} onToggleSlider={this.onToggleSlider} />
       </div>

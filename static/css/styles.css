@@ -12,6 +12,12 @@ a:hover {
 h1 {
   font-size: 50px;
   font-weight: bold;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: normal;
 }
 
 .titleContentsPadding {
@@ -337,6 +343,10 @@ h1 {
 .ml-auto,
 .mx-auto {
   margin-left: auto;
+}
+
+.flex-50 {
+  display: flex;
 }
 
 .fade-enter {

@@ -1,3 +1,5 @@
+@import '../../styles/index.scss';
+
 .nav {
   padding: 30px 30px 50px 50px;
   margin: 0;
@@ -11,17 +13,17 @@
   line-height: 45px;
 
   > a {
-    color: #fff;
+    color: $text-white;
 
     &:hover {
-      color: #EA625F;
+      color: $accent-color;
     }
   }
 }
 
 .navWrapper {
   width: 320px;
-  background: #222537;
+  background: $primary-color;
   position: fixed;
   top: 0;
   right: 0;

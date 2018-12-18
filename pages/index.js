@@ -2,6 +2,7 @@
 
 import React from 'react';
 import axios from 'axios';
+import styles from './index.scss';
 import API from '../constants/api';
 import { PostsList } from '../util/postsList';
 
@@ -54,9 +55,63 @@ export default class Top extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="titleContentsPadding">
-        <h1>Post list</h1>
+      <div>
+        <div className={`titleContentsPadding ${styles.topMain}`}>
+          <h1 className={styles.h1}>
+            Create your brands
+            <br />
+            for your business.
+          </h1>
+          <h2 className={styles.subTitle}>
+            我々はホームページ制作会社です。
+            <br />
+            あなたのビジネスをブランディングする為の
+            <br />
+            デザインを、一緒に作り上げましょう。
+          </h2>
+        </div>
+        <div className="flex-50">
+          <div className={styles.contentsLeft}>
+            <p>WHAT WE THINK</p>
+            <h2 className={styles.h2}>ホームページとブランディング</h2>
+            <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+            <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+            <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          </div>
+          <div className={styles.contentsRight}>
+            <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          </div>
+          <div />
+        </div>
+        <div className={styles.contents}>
+          <p>WHAT WE DO</p>
+          <h2 className={styles.h2}>我々が提供できるサービス</h2>
+          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+        </div>
+        <div className="flex-50">
+          <div className={styles.contentsLeft2} />
+          <div className={styles.contentsRight2}>
+            <p>BEST PRACTICE</p>
+            <h2 className={styles.h2}>ホームページ作成の事前準備</h2>
+            <p>
+              効率よくホームページを作るために、事前に準備シておくべきことがあります。まずは、あなたが伝えたいことを整理しましょう。そして、ページ構成を考えましょう。
+            </p>
+            <p>
+              サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。
+            </p>
+          </div>
+          <div />
+        </div>
         <div>{this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}</div>
+        <div className={styles.contact}>
+          <p>LET’S THINK TOGETHER</p>
+          <h2 className={styles.h2}>Contact</h2>
+          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+        </div>
         <style jsx>
           {`
             @media (max-width: 600px) {

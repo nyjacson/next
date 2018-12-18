@@ -1,0 +1,56 @@
+@import '../styles/index.scss';
+
+.h1 {
+  margin-bottom: 50px;
+}
+
+.topMain {
+  height: calc(100vh - #{$header-height});
+  padding-top: 80px;
+}
+
+.subTitle {
+  font-size: 25px;
+  margin-bottom: 130px;
+  line-height: 1.5;
+}
+
+.h2 {
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.contentsLeft {
+  padding: 80px 60px;
+  background: $primary-color;
+  color: $text-white;
+}
+
+.contentsRight {
+  padding: 80px 60px;
+  background: $secondary-color;
+}
+
+.contentsLeft2 {
+  background: url('/static/img/imgBusiness.jpg') no-repeat;
+  background-size: cover;
+  width: 50%;
+}
+
+.contentsRight2 {
+  padding: 100px 60px 200px;
+  background: $bg-gray;
+  width: 50%;
+}
+
+.contents {
+  padding: 180px 60px;
+  text-align: center;
+}
+
+.contact {
+  padding: 180px 60px;
+  text-align: center;
+  background: $primary-color;
+  color: #ffffff;
+}

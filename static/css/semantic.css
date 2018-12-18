@@ -587,7 +587,8 @@
  h5 {
    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
    line-height: 1.28571429em;
-   margin: calc(2rem -  0.14285714em ) 0em 1rem;
+   /* margin: calc(2rem -  0.14285714em ) 0em 1rem; */
+   margin: 0; /* Yosuke Add */
    font-weight: bold;
    padding: 0em;
  }
@@ -612,22 +613,7 @@
  h5 {
    font-size: 1rem;
  }
- 
- h1:first-child,
- h2:first-child,
- h3:first-child,
- h4:first-child,
- h5:first-child {
-   margin-top: 0em;
- }
- 
- h1:last-child,
- h2:last-child,
- h3:last-child,
- h4:last-child,
- h5:last-child {
-   margin-bottom: 0em;
- }
+
  
  /*******************************
               Text
