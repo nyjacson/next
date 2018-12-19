@@ -15,20 +15,35 @@
   line-height: 1.5;
 }
 
+.subText {
+  margin-bottom: 45px;
+  font-weight: bold;
+}
+
+.itemText {
+  margin-bottom: 100px;
+}
+
 .h2 {
   font-size: 30px;
   line-height: 1.5;
 }
 
 .contentsLeft {
-  padding: 80px 60px;
+  padding: 80px 60px 120px;
   background: $primary-color;
   color: $text-white;
+  width: 50%;
+
+  > p {
+    line-height: 1.8;
+  }
 }
 
 .contentsRight {
   padding: 80px 60px;
   background: $secondary-color;
+  width: 50%;
 }
 
 .contentsLeft2 {
@@ -41,11 +56,28 @@
   padding: 100px 60px 200px;
   background: $bg-gray;
   width: 50%;
+
+  > p {
+    line-height: 1.8;
+  }
 }
 
-.contents {
-  padding: 180px 60px;
+.serviceContents {
+  padding: 180px 0;
   text-align: center;
+}
+
+.serviceItemWrapper {
+  justify-content: space-around;
+}
+
+.serviceItem {
+  width: 25%;
+}
+
+.serviceItemTitle {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .contact {
@@ -53,4 +85,15 @@
   text-align: center;
   background: $primary-color;
   color: #ffffff;
+}
+
+.button {
+  background: $accent-color;
+  color: #ffffff;
+  cursor: pointer;
+  height: 74px;
+  line-height: 74px;
+  padding: 0 50px;
+  border-radius: 40px;
+  border: none;
 }

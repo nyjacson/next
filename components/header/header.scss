@@ -16,12 +16,20 @@
   cursor: pointer;
 
   > span {
-    margin-right: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
   }
+}
+
+.headerWrapper {
+  width: 100%;
+  padding: 10px 35px;
 }
 
 .headerInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }

@@ -40,7 +40,7 @@ export default class Header extends React.Component<Props, State> {
       <div>
         <Meta headTitle={this.props.headTitle || 'test'} />
         <header className={styles.headerWrapper}>
-          <div className="ui container py-3">
+          <div className={styles.headerWrapper}>
             <div className={styles.headerInner}>
               <Link href={{ pathname: '/' }}>
                 <a href className={styles.logo}>
@@ -54,7 +54,7 @@ export default class Header extends React.Component<Props, State> {
                 onMouseEnter={this.onMouseEnter}
                 onMouseLeave={this.onMouseLeave}
               >
-                <span>MENU</span>
+                <span>Menu</span>
                 <IconMenu onHover={this.state.onMenu} />
               </a>
             </div>

@@ -11,7 +11,7 @@ type Props = {
 
 export function PostsList(props: Props) {
   const list = props.posts.map(p => (
-    <div key={p.id} className={`p-3 border ${styles.wrapper}`}>
+    <div key={p.id} className={`${styles.wrapper}`}>
       <div>{ReactHtmlParser(p.id)}</div>
       <div>{ReactHtmlParser(p.title)}</div>
       <div>

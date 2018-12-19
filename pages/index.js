@@ -72,8 +72,8 @@ export default class Top extends React.Component<Props, State> {
         </div>
         <div className="flex-50">
           <div className={styles.contentsLeft}>
-            <p>WHAT WE THINK</p>
-            <h2 className={styles.h2}>ホームページとブランディング</h2>
+            <p className={styles.subText}>WHAT WE THINK</p>
+            <h2 className={`${styles.subText} ${styles.h2}`}>ホームページとブランディング</h2>
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
@@ -83,18 +83,35 @@ export default class Top extends React.Component<Props, State> {
           </div>
           <div />
         </div>
-        <div className={styles.contents}>
-          <p>WHAT WE DO</p>
-          <h2 className={styles.h2}>我々が提供できるサービス</h2>
-          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+        <div className={styles.serviceContents}>
+          <p className={styles.subText}>WHAT WE DO</p>
+          <h2 className={`${styles.itemText} ${styles.h2}`}>我々が提供できるサービス</h2>
+          <div className={`flex-50 ${styles.serviceItemWrapper}`}>
+            <div className={styles.serviceItem}>
+              <p className={styles.serviceItemTitle}>UI / UXコンサルティング</p>
+              <p>デザインコンセプトの作成</p>
+              <p>ユーザー要件の調査・定義</p>
+              <p>UI/UX改善提案等</p>
+            </div>
+            <div className={styles.serviceItem}>
+              <p className={styles.serviceItemTitle}>デザイン</p>
+              <p>ロゴ制作</p>
+              <p>名刺・印刷物のデザイン</p>
+              <p>ホームページデザイン</p>
+            </div>
+            <div className={styles.serviceItem}>
+              <p className={styles.serviceItemTitle}>ホームページ開発</p>
+              <p>Wordpressテーマの制作</p>
+              <p>ECサイト、SPAサイトの制作</p>
+              <p>HTML/CSS/JSコーディング</p>
+            </div>
+          </div>
         </div>
         <div className="flex-50">
           <div className={styles.contentsLeft2} />
           <div className={styles.contentsRight2}>
-            <p>BEST PRACTICE</p>
-            <h2 className={styles.h2}>ホームページ作成の事前準備</h2>
+            <p className={styles.subText}>BEST PRACTICE</p>
+            <h2 className={`${styles.subText} ${styles.h2}`}>ホームページ作成の事前準備</h2>
             <p>
               効率よくホームページを作るために、事前に準備シておくべきことがあります。まずは、あなたが伝えたいことを整理しましょう。そして、ページ構成を考えましょう。
             </p>
@@ -106,21 +123,20 @@ export default class Top extends React.Component<Props, State> {
         </div>
         <div>{this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}</div>
         <div className={styles.contact}>
-          <p>LET’S THINK TOGETHER</p>
-          <h2 className={styles.h2}>Contact</h2>
-          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-          <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+          <p className={styles.subText}>LET’S THINK TOGETHER</p>
+          <h2 className={`${styles.subText} ${styles.h2}`}>
+            費用対効果の高く、美しいホームページで
+            <br />
+            あなたのビジネスを成長させましょう。
+            <br />
+            まずはご相談ください。
+          </h2>
+          <a href>
+            <button type="button" className={styles.button}>
+              お問い合わせフォームへ
+            </button>
+          </a>
         </div>
-        <style jsx>
-          {`
-            @media (max-width: 600px) {
-              p {
-                font-size: 14px;
-              }
-            }
-          `}
-        </style>
       </div>
     );
   }
