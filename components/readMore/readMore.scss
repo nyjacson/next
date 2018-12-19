@@ -11,11 +11,20 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  padding-top: 20px;
 
   &:hover {
     .bar {
       width: 45px;
       opacity: 1;
     }
+  }
+}
+
+.textWhite {
+  color: #ffffff;
+
+  .bar {
+    border-bottom: solid 1px #ffffff;
   }
 }

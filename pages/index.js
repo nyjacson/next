@@ -2,6 +2,7 @@
 
 import React from 'react';
 import axios from 'axios';
+import ReadMore from '../components/readMore';
 import styles from './index.scss';
 import API from '../constants/api';
 import { PostsList } from '../util/postsList';
@@ -77,6 +78,7 @@ export default class Top extends React.Component<Props, State> {
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+            <ReadMore pathname="post" textWhite />
           </div>
           <div className={styles.contentsRight}>
             <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
@@ -118,6 +120,7 @@ export default class Top extends React.Component<Props, State> {
             <p>
               サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。
             </p>
+            <ReadMore pathname="post" />
           </div>
           <div />
         </div>
@@ -133,7 +136,8 @@ export default class Top extends React.Component<Props, State> {
           </h2>
           <a href>
             <button type="button" className={styles.button}>
-              お問い合わせフォームへ
+              <span>お問い合わせフォームへ</span>
+              <img className={styles.iconPlane} src="static/img/plane.svg" alt="planeIcon" />
             </button>
           </a>
         </div>
