@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import Link from 'next/link';
+import ReadMore from '../../components/readMore';
 import styles from './postsList.scss';
 
 type Props = {
@@ -16,12 +16,7 @@ export function PostsList(props: Props) {
       <div>{ReactHtmlParser(p.title)}</div>
       <div>
         {ReactHtmlParser(p.excerpt)}
-        <Link href={{ pathname: 'post', query: { id: p.id } }}>
-          <a href className={styles.link}>
-            <span className={styles.bar} />
-            もっと読む
-          </a>
-        </Link>
+        <ReadMore pathname="post" query={{ id: p.id }} />
       </div>
     </div>
   ));
