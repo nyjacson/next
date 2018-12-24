@@ -3,7 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import API from '../constants/api';
-import { PostPage } from '../util/postPage';
+import { PostPage } from '../components/postPage';
 
 type Props = {
   query: {
