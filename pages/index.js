@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import styles from './index.scss';
 import { getPosts } from '../util/postsControl';
@@ -14,7 +15,7 @@ type State = {
   contactHeight: number
 };
 
-export default class Top extends React.Component<Props, State> {
+export class Top extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.contactRef = React.createRef();
@@ -159,3 +160,22 @@ export default class Top extends React.Component<Props, State> {
     );
   }
 }
+
+export function mapDispatchToProps(/* dispatch */) {
+  return {
+    // onAddTodo: todo => {
+    //   dispatch(addTodo(toto));
+    // }
+  };
+}
+
+export function mapStateToProps(/* state: State, ownProps: Prop */) {
+  return {
+    // componentProps: value
+  };
+}
+
+export default connect(
+  mapDispatchToProps,
+  mapDispatchToProps
+)(Top);
