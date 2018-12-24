@@ -1,10 +1,9 @@
 // @flow
 
 import React from 'react';
-import axios from 'axios';
 import ReadMore from '../components/readMore';
 import styles from './index.scss';
-import API from '../constants/api';
+import { getPosts } from '../util/postsControl';
 import { PostsList } from '../components/postsList';
 
 type Props = {};
@@ -31,8 +30,14 @@ export default class Top extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    // for contact section
     this.getHeight();
-    this.getPosts();
+    // for getting all posts
+    getPosts(posts => {
+      this.setState({
+        posts
+      });
+    });
   }
 
   getHeight = () => {
@@ -40,31 +45,6 @@ export default class Top extends React.Component<Props, State> {
     this.setState({
       contactHeight: clientHeight
     });
-  };
-
-  getPosts = () => {
-    let posts = [];
-    axios
-      .get(API.posts)
-      .then(res => {
-        posts = res.data.map(r => {
-          return {
-            id: r.id,
-            title: r.title.rendered,
-            content: r.content.rendered,
-            excerpt: r.excerpt.rendered,
-            date: r.date,
-            modified: r.modified,
-            categories: r.categories
-          };
-        });
-      })
-      .then(() => {
-        this.setState({
-          posts
-        });
-      })
-      .catch(error => console.log('error:', error));
   };
 
   handleHoverOn = () => {
