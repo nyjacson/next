@@ -4,6 +4,11 @@
   height: $header-height;
   display: flex;
   align-items: center;
+  width: 100%;
+  padding: 10px 35px;
+  background: #ffffff;
+  position: relative;
+  z-index: 10;
 }
 
 .logo {
@@ -20,11 +25,6 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
-}
-
-.headerWrapper {
-  width: 100%;
-  padding: 10px 35px;
 }
 
 .headerInner {

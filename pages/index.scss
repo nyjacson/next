@@ -4,9 +4,15 @@
   margin-bottom: 50px;
 }
 
+.topWrapper {
+  position: relative;
+  z-index: 10;
+}
+
 .topMain {
   height: calc(100vh - #{$header-height});
   padding-top: 80px;
+  background: #ffffff;
 }
 
 .subTitle {
@@ -65,6 +71,7 @@
 .serviceContents {
   padding: 180px 0;
   text-align: center;
+  background: #ffffff;
 }
 
 .serviceItemWrapper {
@@ -80,11 +87,20 @@
   margin-bottom: 20px;
 }
 
+.blogs {
+  background: #ffffff;
+}
+
 .contact {
-  padding: 180px 60px;
+  padding: 180px 60px 230px;
   text-align: center;
   background: $primary-color;
   color: #ffffff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .button {
@@ -103,12 +119,23 @@
     padding-right: 40px;
     background: darken($accent-color, 4%)
   }
+
+  > img {
+    transition: all 200ms ease-out;
+    opacity: 0;
+  }
+
+  &.onHover {
+    > img {
+      opacity: 1;
+    }
+  }
 }
 
 .iconPlane {
-  width: 32px;
-  height: 32px;
+  width: 25px;
+  height: auto;
   position: absolute;
-  top: 18px;
-  right: 20px;
+  top: 25px;
+  right: 28px;
 }
