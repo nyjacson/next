@@ -5,7 +5,7 @@ import axios from 'axios';
 import ReadMore from '../components/readMore';
 import styles from './index.scss';
 import API from '../constants/api';
-import { PostsList } from '../util/postsList';
+import { PostsList } from '../components/postsList';
 
 type Props = {};
 
@@ -33,9 +33,6 @@ export default class Top extends React.Component<Props, State> {
   componentDidMount() {
     this.getHeight();
     this.getPosts();
-    // setTimeout(() => {
-    //   this.getHeight();
-    // }, 1);
   }
 
   getHeight = () => {

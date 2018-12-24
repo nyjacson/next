@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import ReadMore from '../../components/readMore';
+import ReadMore from '../readMore';
 import styles from './postsList.scss';
 
 type Props = {
