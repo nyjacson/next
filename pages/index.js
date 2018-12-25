@@ -165,12 +165,14 @@ export class Top extends React.Component<Props, State> {
   }
 }
 
-export function mapDispatchToProps(/* dispatch */) {
+export function mapDispatchToProps(dispatch) {
   return {
     // onAddTodo: todo => {
     //   dispatch(addTodo(toto));
     // }
-    fetchCagetories
+    fetchCagetories: () => {
+      dispatch(fetchCagetories());
+    }
   };
 }
 
