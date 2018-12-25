@@ -4,7 +4,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import styles from './index.scss';
-// import { getPosts } from '../util/postsControl';
 import { PostsList } from '../components/postsList';
 import { fetchCagetories, fetchPosts } from '../actions/wpControl';
 
@@ -36,7 +35,6 @@ export class Top extends React.Component<Props, State> {
     this.props.fetchCagetories();
     // for contact section
     this.getHeight();
-    // for getting all posts
   }
 
   getHeight = () => {
@@ -59,7 +57,6 @@ export class Top extends React.Component<Props, State> {
   };
 
   render() {
-    console.log(this.props.categories);
     return (
       <div style={{ marginBottom: this.state.contactHeight }}>
         <div className={styles.topWrapper}>
@@ -132,7 +129,7 @@ export class Top extends React.Component<Props, State> {
           </div>
           <div className={styles.blogs}>
             {this.props.posts && this.props.posts.length > 0 ? (
-              <PostsList posts={this.props.posts} />
+              <PostsList posts={this.props.posts} categories={this.props.categories} />
             ) : (
               'コンテンツがありません'
             )}
