@@ -9,7 +9,6 @@ export function fetchCagetories() {
     axios
       .get(APIs.categories)
       .then(res => {
-        console.log('fetch2');
         return res.data.map(r => {
           return {
             id: r.id,
@@ -21,11 +20,9 @@ export function fetchCagetories() {
         });
       })
       .then(categories => {
-        console.log('fetch cat called3', categories);
         dispatch({ type: 'FETCH_CATEGORIES_SUCCESS', response: categories });
       })
       .catch(error => {
-        console.log('error:', error);
         dispatch({ type: 'FETCH_CATEGORIES_ERROR', response: error });
       });
   };

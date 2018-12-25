@@ -9,7 +9,8 @@ import { PostsList } from '../components/postsList';
 import { fetchCagetories } from '../actions/wpControl';
 
 type Props = {
-  fetchCagetories: any
+  fetchCagetories: any,
+  categories: Array<any>
 };
 
 type State = {
@@ -65,6 +66,7 @@ export class Top extends React.Component<Props, State> {
   };
 
   render() {
+    console.log(this.props.categories);
     return (
       <div style={{ marginBottom: this.state.contactHeight }}>
         <div className={styles.topWrapper}>
@@ -183,6 +185,6 @@ export function mapStateToProps(state: any /*  ownProps: Prop */) {
 }
 
 export default connect(
-  mapDispatchToProps,
+  mapStateToProps,
   mapDispatchToProps
 )(Top);
