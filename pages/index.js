@@ -6,8 +6,11 @@ import ReadMore from '../components/readMore';
 import styles from './index.scss';
 import { getPosts } from '../util/postsControl';
 import { PostsList } from '../components/postsList';
+import { fetchCagetories } from '../actions/wpControl';
 
-type Props = {};
+type Props = {
+  fetchCagetories: any
+};
 
 type State = {
   posts: Array<any>,
@@ -31,6 +34,7 @@ export class Top extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    this.props.fetchCagetories();
     // for contact section
     this.getHeight();
     // for getting all posts
@@ -166,12 +170,13 @@ export function mapDispatchToProps(/* dispatch */) {
     // onAddTodo: todo => {
     //   dispatch(addTodo(toto));
     // }
+    fetchCagetories
   };
 }
 
-export function mapStateToProps(/* state: State, ownProps: Prop */) {
+export function mapStateToProps(state: any /*  ownProps: Prop */) {
   return {
-    // componentProps: value
+    categories: state.categories.data
   };
 }
 

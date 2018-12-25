@@ -1,22 +1,24 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { devToolsEnhancer } from 'redux-devtools-extension';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import BaseLayout from '../layouts/baseLayout';
+import categories from '../reducers/categories';
 
 const initialState = {
-  categories: {},
+  testcat: {},
   posts: []
 };
 
-const reducer = (state = { ...initialState }, action) => {
+const testReducer = (state = { ...initialState }, action) => {
   switch (action.type) {
     case 'fetch_categories_success':
       return Object.assign({}, state, {
-        categories: action.payload
+        testcat: action.payload
       });
     case 'fetch_posts_success':
       return Object.assign({}, state, {
@@ -27,8 +29,13 @@ const reducer = (state = { ...initialState }, action) => {
   }
 };
 
+const rootReducer = combineReducers({
+  categories,
+  test: testReducer
+});
+
 const makeStore = initialState => {
-  return createStore(reducer, initialState, devToolsEnhancer({}));
+  return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 };
 
 export class MyApp extends App {
