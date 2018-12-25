@@ -8,10 +8,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import BaseLayout from '../layouts/baseLayout';
 import categories from '../reducers/categories';
+import posts from '../reducers/posts';
 
 const initialState = {
   testcat: {},
-  posts: []
+  posts: null
 };
 
 const testReducer = (state = { ...initialState }, action) => {
@@ -31,6 +32,7 @@ const testReducer = (state = { ...initialState }, action) => {
 
 const rootReducer = combineReducers({
   categories,
+  posts,
   test: testReducer
 });
 

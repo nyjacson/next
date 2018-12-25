@@ -4,13 +4,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import styles from './index.scss';
-import { getPosts } from '../util/postsControl';
+// import { getPosts } from '../util/postsControl';
 import { PostsList } from '../components/postsList';
-import { fetchCagetories } from '../actions/wpControl';
+import { fetchCagetories, fetchPosts } from '../actions/wpControl';
 
 type Props = {
   fetchCagetories: any,
-  categories: Array<any>
+  categories: Array<any>,
+  fetchPosts: any,
+  posts: Array<any>
 };
 
 type State = {
@@ -24,26 +26,17 @@ export class Top extends React.Component<Props, State> {
     super(props);
     this.contactRef = React.createRef();
     this.state = {
-      posts: [
-        {
-          id: null
-        }
-      ],
       onHover: false,
       contactHeight: 0
     };
   }
 
   componentDidMount() {
+    this.props.fetchPosts();
     this.props.fetchCagetories();
     // for contact section
     this.getHeight();
     // for getting all posts
-    getPosts(posts => {
-      this.setState({
-        posts
-      });
-    });
   }
 
   getHeight = () => {
@@ -138,7 +131,11 @@ export class Top extends React.Component<Props, State> {
             <div />
           </div>
           <div className={styles.blogs}>
-            {this.state.posts[0].id !== null ? <PostsList posts={this.state.posts} /> : 'コンテンツがありません'}
+            {this.props.posts && this.props.posts.length > 0 ? (
+              <PostsList posts={this.props.posts} />
+            ) : (
+              'コンテンツがありません'
+            )}
           </div>
         </div>
         <div className={styles.contact} ref={this.contactRef}>
@@ -169,18 +166,19 @@ export class Top extends React.Component<Props, State> {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    // onAddTodo: todo => {
-    //   dispatch(addTodo(toto));
-    // }
     fetchCagetories: () => {
       dispatch(fetchCagetories());
+    },
+    fetchPosts: () => {
+      dispatch(fetchPosts());
     }
   };
 }
 
 export function mapStateToProps(state: any /*  ownProps: Prop */) {
   return {
-    categories: state.categories.data
+    categories: state.categories.data,
+    posts: state.posts.data || null
   };
 }
 
