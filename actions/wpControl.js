@@ -6,7 +6,12 @@ export function fetchCagetories() {
   return (dispatch: (action: Actions) => void) => {
     dispatch({ type: 'FETCH_CATEGORIES_BEGIN' });
     axios
-      .get(APIs.categories)
+      .get(APIs.categories, {
+        params: {
+          per_page: 100,
+          offset: 0
+        }
+      })
       .then(res => {
         return res.data.map(r => {
           return {
@@ -31,7 +36,12 @@ export function fetchPosts() {
   return (dispatch: (action: Actions) => void) => {
     dispatch({ type: 'FETCH_POSTS_BEGIN' });
     axios
-      .get(APIs.posts)
+      .get(APIs.posts, {
+        params: {
+          per_page: 100,
+          offset: 0
+        }
+      })
       .then(res => {
         return res.data.map(r => {
           return {
