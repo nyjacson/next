@@ -7,13 +7,18 @@ $text-black: #343434;
 $text-white: #ffffff; 
 
 // typography
-$base-font: 16px;
+
 $h1-font: 50px;
 $h2-font: 30px;
+$subtitle-font: 25px;
 $sidebar-main: 20px;
 $sidebar-sub: 18px;
+$base-font: 16px; // Default font
 $menu-font: 15px;
-$subtitle-font: 25px;
+$base-sub-font: 14px;
+$base-small-font: 12px;
+
+$font-bold: bold;
 
 // Breakpoints
 $screenSize-SP-MAX: 743px;

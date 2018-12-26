@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import styles from './index.scss';
-import { PostsList } from '../components/postsList';
+import PostsList from '../components/postsList';
 import { fetchCagetories, fetchPosts } from '../actions/wpControl';
 
 type Props = {
@@ -128,6 +128,10 @@ export class Top extends React.Component<Props, State> {
             <div />
           </div>
           <div className={styles.blogs}>
+            <div className={styles.blogsTitleWrapper}>
+              <p className={styles.subText}>NEW CONTENTS</p>
+              <h2 className={`${styles.itemText} ${styles.h2}`}>最近の記事</h2>
+            </div>
             {this.props.posts && this.props.posts.length > 0 ? (
               <PostsList posts={this.props.posts} categories={this.props.categories} />
             ) : (
