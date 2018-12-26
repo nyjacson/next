@@ -19,17 +19,23 @@ type Props = {
 type State = {
   posts: Array<any>,
   onHover: boolean,
-  contactHeight: number
+  contactHeight: number,
+  showTopImg: boolean
 };
 
 export class Top extends React.Component<Props, State> {
   constructor(props) {
     super(props);
     this.contactRef = React.createRef();
+    this.canvasRef = React.createRef();
+    this.canvasWrapperRef = React.createRef();
     this.state = {
       onHover: false,
       contactHeight: 0,
-      loadedPosts: 0
+      loadedPosts: 0,
+      showTopImg: true,
+      canvasWidth: 0,
+      canvasHeight: 0
     };
   }
 
@@ -40,7 +46,35 @@ export class Top extends React.Component<Props, State> {
     });
     this.props.fetchCagetories();
     this.getHeight();
+    document.addEventListener('scroll', this.onScroll);
+    window.addEventListener('resize', this.onResize);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+  }
+
+  onScroll = () => {
+    if (window.top.pageYOffset > 2000) {
+      // 2000 could be any
+      this.setState({ showTopImg: false });
+    } else if (this.state.showTopImg === false) {
+      this.setState({ showTopImg: true });
+    }
+  };
+
+  onResize = () => {
+    const clientHeight =
+      (this.canvasWrapperRef && this.canvasWrapperRef.current && this.canvasWrapperRef.current.clientHeight) || 0;
+    const clientWidth =
+      (this.canvasWrapperRef && this.canvasWrapperRef.current && this.canvasWrapperRef.current.clientWidth) || 0;
+
+    this.setState({
+      canvasWidth: clientWidth,
+      canvasHeight: clientHeight
+    });
+  };
 
   getHeight = () => {
     const { clientHeight } = this.contactRef.current;
@@ -72,6 +106,20 @@ export class Top extends React.Component<Props, State> {
   render() {
     return (
       <div style={{ marginBottom: this.state.contactHeight }}>
+        {this.state.showTopImg && (
+          <div className={styles.topbgImg} ref={this.canvasWrapperRef}>
+            <canvas
+              ref={this.canvasRef}
+              width={this.state.canvasWidth || 0}
+              height={this.state.canvasHeight || 0}
+              onMouseDown={e => this.startDrawing(e.nativeEvent.offsetX, e.nativeEvent.offsetY)}
+              onMouseUp={() => this.endDrawing()}
+              onMouseLeave={() => this.endDrawing()}
+              onMouseMove={e => this.draw(e.nativeEvent.offsetX, e.nativeEvent.offsetY)}
+              // style={this.canvasStyle}
+            />
+          </div>
+        )}
         <div className={styles.topWrapper}>
           <div className={`titleContentsPadding ${styles.topMain}`}>
             <h1 className={styles.h1}>
@@ -87,6 +135,7 @@ export class Top extends React.Component<Props, State> {
               デザインを、一緒に作り上げましょう。
             </h2>
           </div>
+
           <div className="flex-50">
             <div className={styles.contentsLeft}>
               <p className={styles.subText}>WHAT WE THINK</p>
@@ -106,18 +155,27 @@ export class Top extends React.Component<Props, State> {
             <h2 className={`${styles.itemText} ${styles.h2}`}>我々が提供できるサービス</h2>
             <div className={`flex-50 ${styles.serviceItemWrapper}`}>
               <div className={styles.serviceItem}>
+                <div>
+                  <img className={styles.iconUi} src="static/img/icon-ui.svg" alt="uiIcon" />
+                </div>
                 <p className={styles.serviceItemTitle}>UI / UXコンサルティング</p>
                 <p>デザインコンセプトの作成</p>
                 <p>ユーザー要件の調査・定義</p>
                 <p>UI/UX改善提案等</p>
               </div>
               <div className={styles.serviceItem}>
+                <div>
+                  <img className={styles.iconDesign} src="static/img/icon-design.svg" alt="designIcon" />
+                </div>
                 <p className={styles.serviceItemTitle}>デザイン</p>
                 <p>ロゴ制作</p>
                 <p>名刺・印刷物のデザイン</p>
                 <p>ホームページデザイン</p>
               </div>
               <div className={styles.serviceItem}>
+                <div>
+                  <img className={styles.iconWeb} src="static/img/icon-website.svg" alt="websiteIcon" />
+                </div>
                 <p className={styles.serviceItemTitle}>ホームページ開発</p>
                 <p>Wordpressテーマの制作</p>
                 <p>ECサイト、SPAサイトの制作</p>
@@ -165,25 +223,29 @@ export class Top extends React.Component<Props, State> {
           </div>
         </div>
         <div className={styles.contact} ref={this.contactRef}>
-          <p className={styles.subText}>LET’S THINK TOGETHER</p>
-          <h2 className={`${styles.subText} ${styles.h2}`}>
-            費用対効果の高く、美しいホームページで
-            <br />
-            あなたのビジネスを成長させましょう。
-            <br />
-            まずはご相談ください。
-          </h2>
-          <a href>
-            <button
-              type="button"
-              className={`${styles.button} ${this.state.onHover ? styles.onHover : ''}`}
-              onMouseEnter={this.handleHoverOn}
-              onMouseLeave={this.handleHoverOff}
-            >
-              <span>お問い合わせフォームへ</span>
-              <img className={styles.iconPlane} src="static/img/plane.svg" alt="planeIcon" />
-            </button>
-          </a>
+          {!this.state.showTopImg && (
+            <div>
+              <p className={styles.subText}>LET’S THINK TOGETHER</p>
+              <h2 className={`${styles.subText} ${styles.h2}`}>
+                費用対効果の高く、美しいホームページで
+                <br />
+                あなたのビジネスを成長させましょう。
+                <br />
+                まずはご相談ください。
+              </h2>
+              <a href>
+                <button
+                  type="button"
+                  className={`${styles.button} ${this.state.onHover ? styles.onHover : ''}`}
+                  onMouseEnter={this.handleHoverOn}
+                  onMouseLeave={this.handleHoverOff}
+                >
+                  <span>お問い合わせフォームへ</span>
+                  <img className={styles.iconPlane} src="static/img/plane.svg" alt="planeIcon" />
+                </button>
+              </a>
+            </div>
+          )}
         </div>
       </div>
     );
