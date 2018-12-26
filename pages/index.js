@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
+import { Button } from '../components/button';
 import styles from './index.scss';
 import PostsList from '../components/postsList';
 import { fetchCagetories, fetchPosts } from '../actions/wpControl';
@@ -11,7 +12,8 @@ type Props = {
   fetchCagetories: any,
   categories: Array<any>,
   fetchPosts: any,
-  posts: Array<any>
+  posts: Array<any>,
+  postsTotal: number
 };
 
 type State = {
@@ -26,14 +28,17 @@ export class Top extends React.Component<Props, State> {
     this.contactRef = React.createRef();
     this.state = {
       onHover: false,
-      contactHeight: 0
+      contactHeight: 0,
+      loadedPosts: 0
     };
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts(3, 0);
+    this.setState({
+      loadedPosts: 3
+    });
     this.props.fetchCagetories();
-    // for contact section
     this.getHeight();
   }
 
@@ -53,6 +58,14 @@ export class Top extends React.Component<Props, State> {
   handleHoverOff = () => {
     this.setState({
       onHover: false
+    });
+  };
+
+  handleOnClickLoading = () => {
+    const count = this.state.loadedPosts + 6;
+    this.props.fetchPosts(count);
+    this.setState({
+      loadedPosts: count
     });
   };
 
@@ -133,7 +146,19 @@ export class Top extends React.Component<Props, State> {
               <h2 className={`${styles.itemText} ${styles.h2}`}>最近の記事</h2>
             </div>
             {this.props.posts && this.props.posts.length > 0 ? (
-              <PostsList posts={this.props.posts} categories={this.props.categories} />
+              <div>
+                <PostsList posts={this.props.posts} categories={this.props.categories} />
+                {this.props.posts.length < this.props.postsTotal && (
+                  <div className={styles.blogButtonWrapper}>
+                    <Button
+                      label="その他の記事も読む"
+                      theme="secondary"
+                      imgSrc="static/img/icon-spinner.svg"
+                      onClick={this.handleOnClickLoading}
+                    />
+                  </div>
+                )}
+              </div>
             ) : (
               'コンテンツがありません'
             )}
@@ -167,11 +192,11 @@ export class Top extends React.Component<Props, State> {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    fetchCagetories: () => {
-      dispatch(fetchCagetories());
+    fetchCagetories: (perPage, offset) => {
+      dispatch(fetchCagetories(perPage, offset));
     },
-    fetchPosts: () => {
-      dispatch(fetchPosts());
+    fetchPosts: (perPage, offset) => {
+      dispatch(fetchPosts(perPage, offset));
     }
   };
 }
@@ -179,7 +204,8 @@ export function mapDispatchToProps(dispatch) {
 export function mapStateToProps(state: any /*  ownProps: Prop */) {
   return {
     categories: state.categories.data,
-    posts: state.posts.data || null
+    posts: state.posts.data || null,
+    postsTotal: state.posts.total
   };
 }
 

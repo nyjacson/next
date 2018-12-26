@@ -21,3 +21,33 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+@mixin fadeIn {
+  @keyframes key_fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  animation: key_fadeIn 0.5s ease-out 0s;
+}
+
+@mixin fadeOut {
+  @keyframes key_fadeOut {
+    from {
+      display: block;
+      opacity: 1;
+    }
+
+    to {
+      display: none;
+      opacity: 0;
+    }
+  }
+
+  animation: key_fadeOut 0.2s ease-out 0s;
+}

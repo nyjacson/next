@@ -55,7 +55,6 @@ export class PostsList extends React.Component<Props, State> {
 
   render() {
     const contentsMqType = getMqType(this.props.size);
-    console.log('mq', contentsMqType);
     const respStyle = contentsMqType === 'SP' ? styles.SP : contentsMqType === 'TL' ? styles.TL : styles.PC;
     const list = this.props.posts.map(p => (
       <div key={p.id} className={styles.postItem}>

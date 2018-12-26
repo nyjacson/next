@@ -2,14 +2,14 @@
 import axios from 'axios';
 import APIs from '../constants/api';
 
-export function fetchCagetories() {
+export function fetchCagetories(per_page: ?number = 100, offset: ?number = 0) {
   return (dispatch: (action: Actions) => void) => {
     dispatch({ type: 'FETCH_CATEGORIES_BEGIN' });
     axios
       .get(APIs.categories, {
         params: {
-          per_page: 100,
-          offset: 0
+          per_page,
+          offset
         }
       })
       .then(res => {
@@ -32,17 +32,18 @@ export function fetchCagetories() {
   };
 }
 
-export function fetchPosts() {
+export function fetchPosts(per_page: ?number = 100, offset: ?number = 0) {
   return (dispatch: (action: Actions) => void) => {
     dispatch({ type: 'FETCH_POSTS_BEGIN' });
     axios
       .get(APIs.posts, {
         params: {
-          per_page: 100,
-          offset: 0
+          per_page,
+          offset
         }
       })
       .then(res => {
+        dispatch({ type: 'FETCH_POSTS_TOTAL', response: Number(res.headers['x-wp-total']) });
         return res.data.map(r => {
           return {
             id: r.id,
@@ -55,8 +56,8 @@ export function fetchPosts() {
           };
         });
       })
-      .then(categories => {
-        dispatch({ type: 'FETCH_POSTS_SUCCESS', response: categories });
+      .then(posts => {
+        dispatch({ type: 'FETCH_POSTS_SUCCESS', response: posts });
       })
       .catch(error => {
         dispatch({ type: 'FETCH_POSTS_ERROR', response: error });

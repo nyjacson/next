@@ -3,7 +3,7 @@
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding: 20px 30px;
 }
 
@@ -42,6 +42,8 @@
   @include mq_SP {
     padding: 0;
   }
+
+  @include fadeIn;
 }
 
 .cat {

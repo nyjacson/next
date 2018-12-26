@@ -4,7 +4,8 @@ type ActionOrNothing = Actions | { type: '' };
 const initialState = {
   data: {},
   errors: [],
-  isFetching: false
+  isFetching: false,
+  total: 0
 };
 
 export default function reducer(state: State = initialState, action: ActionOrNothing = { type: '' }) {
@@ -17,6 +18,10 @@ export default function reducer(state: State = initialState, action: ActionOrNot
       return Object.assign({}, state, {
         data: action.response,
         isFetching: false
+      });
+    case 'FETCH_POSTS_TOTAL':
+      return Object.assign({}, state, {
+        total: action.response
       });
     case 'FETCH_POSTS_ERROR':
       return Object.assign({}, state, {
