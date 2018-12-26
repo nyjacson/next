@@ -3,8 +3,8 @@
 import React from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import { withSize } from 'react-sizeme';
+import Link from 'next/link';
 import { getMqType } from '../../utils/layoutControl';
-// import ReadMore from '../readMore';
 import styles from './postsList.scss';
 
 type Props = {
@@ -59,12 +59,13 @@ export class PostsList extends React.Component<Props, State> {
     const list = this.props.posts.map(p => (
       <div key={p.id} className={styles.postItem}>
         <div className={styles.img} style={{ height: this.state.imgHeight }} ref={this.imgRef} />
-        <div className={styles.title}>{ReactHtmlParser(p.title)}</div>
-        <div className={styles.excerpt}>{ReactHtmlParser(p.excerpt)}</div>
+        <Link href={{ pathname: 'post', query: { id: p.id } }}>
+          <a href>
+            <div className={styles.title}>{ReactHtmlParser(p.title)}</div>
+            <div className={styles.excerpt}>{ReactHtmlParser(p.excerpt)}</div>
+          </a>
+        </Link>
         <div className={styles.cat}>{getCategories(p.categories, this.props.categories)}</div>
-        {/* <div>
-          <ReadMore pathname="post" query={{ id: p.id }} />
-        </div> */}
       </div>
     ));
     return <div className={`${styles.wrapper} ${respStyle}`}>{list}</div>;
