@@ -93,7 +93,6 @@ export class Top extends React.Component<Props, State> {
   render() {
     return (
       <div style={{ marginBottom: this.state.contactHeight }}>
-        {this.state.showTopImg && <Canvas />}
         <div className={styles.topWrapper}>
           <div className={`titleContentsPadding ${styles.topMain}`}>
             <h1 className={styles.h1}>
@@ -196,6 +195,7 @@ export class Top extends React.Component<Props, State> {
             )}
           </div>
         </div>
+        {this.state.showTopImg && <Canvas />}
         <div className={styles.contact} ref={this.contactRef}>
           {!this.state.showTopImg && (
             <div>

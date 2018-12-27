@@ -24,7 +24,7 @@ export default class Canvas extends React.Component<Props, State> {
   componentDidMount() {
     this.onResize();
     window.addEventListener('resize', this.onResize);
-    this.canvasWrapperRef.current.addEventListener('mousedown', console.log('test'));
+    this.canvasWrapperRef.current.addEventListener('click', console.log('test'));
     // const bgImg = new Image();
     // bgImg.src = '/static/img/top.jpg';
     // bgImg.width = this.state.canvasWidth;
@@ -74,7 +74,7 @@ export default class Canvas extends React.Component<Props, State> {
           ref={this.canvasRef}
           width={this.state.canvasWidth || 0}
           height={this.state.canvasHeight || 0}
-          onMouseEnter={console.log('down')}
+          onMouseEnter={() => console.log('down')}
         />
       </div>
     );
