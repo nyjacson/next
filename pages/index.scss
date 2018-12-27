@@ -12,19 +12,18 @@
 .topMain {
   height: calc(100vh - #{$header-height});
   padding-top: 80px;
-  // background: rgba(255, 255, 255, 0.7);
 }
 
-.topbgImg {
-  position: fixed;
-  z-index: 5;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  background: url(/static/img/top.jpg) no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
+// .topbgImg {
+//   position: fixed;
+//   z-index: 5;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   background: url('/static/img/top.jpg') no-repeat;
+//   background-size: cover;
+//   height: 100vh;
+// }
 
 .subTitle {
   font-size: 25px;

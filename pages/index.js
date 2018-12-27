@@ -6,6 +6,7 @@ import ReadMore from '../components/readMore';
 import { Button } from '../components/button';
 import styles from './index.scss';
 import PostsList from '../components/postsList';
+import Canvas from '../components/canvas';
 import { fetchCagetories, fetchPosts } from '../actions/wpControl';
 
 type Props = {
@@ -33,9 +34,9 @@ export class Top extends React.Component<Props, State> {
       onHover: false,
       contactHeight: 0,
       loadedPosts: 0,
-      showTopImg: true,
-      canvasWidth: 0,
-      canvasHeight: 0
+      showTopImg: true
+      // canvasWidth: 0,
+      // canvasHeight: 0
     };
   }
 
@@ -47,12 +48,10 @@ export class Top extends React.Component<Props, State> {
     this.props.fetchCagetories();
     this.getHeight();
     document.addEventListener('scroll', this.onScroll);
-    window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount() {
     document.removeEventListener('scroll', this.onScroll);
-    window.removeEventListener('resize', this.onResize);
   }
 
   onScroll = () => {
@@ -62,18 +61,6 @@ export class Top extends React.Component<Props, State> {
     } else if (this.state.showTopImg === false) {
       this.setState({ showTopImg: true });
     }
-  };
-
-  onResize = () => {
-    const clientHeight =
-      (this.canvasWrapperRef && this.canvasWrapperRef.current && this.canvasWrapperRef.current.clientHeight) || 0;
-    const clientWidth =
-      (this.canvasWrapperRef && this.canvasWrapperRef.current && this.canvasWrapperRef.current.clientWidth) || 0;
-
-    this.setState({
-      canvasWidth: clientWidth,
-      canvasHeight: clientHeight
-    });
   };
 
   getHeight = () => {
@@ -106,20 +93,7 @@ export class Top extends React.Component<Props, State> {
   render() {
     return (
       <div style={{ marginBottom: this.state.contactHeight }}>
-        {this.state.showTopImg && (
-          <div className={styles.topbgImg} ref={this.canvasWrapperRef}>
-            <canvas
-              ref={this.canvasRef}
-              width={this.state.canvasWidth || 0}
-              height={this.state.canvasHeight || 0}
-              onMouseDown={e => this.startDrawing(e.nativeEvent.offsetX, e.nativeEvent.offsetY)}
-              onMouseUp={() => this.endDrawing()}
-              onMouseLeave={() => this.endDrawing()}
-              onMouseMove={e => this.draw(e.nativeEvent.offsetX, e.nativeEvent.offsetY)}
-              // style={this.canvasStyle}
-            />
-          </div>
-        )}
+        {this.state.showTopImg && <Canvas />}
         <div className={styles.topWrapper}>
           <div className={`titleContentsPadding ${styles.topMain}`}>
             <h1 className={styles.h1}>
