@@ -20,8 +20,6 @@ export default class Canvas extends React.Component<Props, State> {
       canvasHeight: 0,
       startX: 0,
       startY: 0,
-      endX: 0,
-      endY: 0,
       key: 0,
       isDrawing: false
     };
@@ -73,6 +71,17 @@ export default class Canvas extends React.Component<Props, State> {
     ctx.fillRect(0, 0, this.state.canvasWidth, this.state.canvasHeight);
   };
 
+  resetCanvas = () => {
+    this.setState(
+      {
+        key: Math.random()
+      },
+      () => {
+        this.initializeCanvas();
+      }
+    );
+  };
+
   mouseMove = e => {
     this.setState({
       isDrawing: true
@@ -90,33 +99,34 @@ export default class Canvas extends React.Component<Props, State> {
     });
   };
 
+  getMousePositon = e => {
+    const rect = this.canvasRef.current.getBoundingClientRect();
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    };
+  };
+
   mouseEnter = e => {
-    const rect = e.target.getBoundingClientRect();
+    const mousePos = this.getMousePositon(e);
     this.setState({
       isDrawing: true,
-      startX: e.clientX - rect.left,
-      startY: e.clientY - rect.top
+      startX: mousePos.x,
+      startY: mousePos.y
     });
   };
 
   mouseDown = () => {
-    this.setState(
-      {
-        key: Math.random()
-      },
-      () => {
-        this.initializeCanvas();
-      }
-    );
+    this.resetCanvas();
   };
 
   drawLine = e => {
-    const rect = e.target.getBoundingClientRect();
-    const endX = e.clientX - rect.left;
-    const endY = e.clientY - rect.top;
+    const mousePos = this.getMousePositon(e);
+    const endX = mousePos.x;
+    const endY = mousePos.y;
     const ctx = this.getContext();
     ctx.globalCompositeOperation = 'destination-out';
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 30;
     ctx.lineCap = 'round';
     ctx.beginPath();
     ctx.moveTo(this.state.startX, this.state.startY);
