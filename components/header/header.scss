@@ -6,19 +6,21 @@
   align-items: center;
   width: 100%;
   padding: 10px 35px;
-  // background: #ffffff;
+  pointer-events: none;
   position: relative;
   z-index: 10;
 }
 
 .logo {
   font-size: 35px;
+  pointer-events: auto;
 }
 
 .menuArea {
   display: flex;
   align-items: center;
   cursor: pointer;
+  pointer-events: auto;
 
   > span {
     font-size: 15px;

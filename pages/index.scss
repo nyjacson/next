@@ -7,11 +7,13 @@
 .topWrapper {
   position: relative;
   z-index: 10;
+  pointer-events: none;
 }
 
 .topMain {
   height: calc(100vh - #{$header-height});
   padding-top: 80px;
+  pointer-events: none;
 }
 
 // .topbgImg {
@@ -50,6 +52,7 @@
   background: $primary-color;
   color: $text-white;
   width: 50%;
+  pointer-events: auto;
 
   > p {
     line-height: 1.8;
@@ -72,6 +75,7 @@
   padding: 100px 60px 200px;
   background: $bg-gray;
   width: 50%;
+  pointer-events: auto;
 
   > p {
     line-height: 1.8;
@@ -99,6 +103,7 @@
 
 .blogs {
   background: #ffffff;
+  pointer-events: auto;
 }
 
 .blogsTitleWrapper {
