@@ -122,14 +122,17 @@ export default class Canvas extends React.Component<Props, State> {
 
   drawLine = e => {
     const mousePos = this.getMousePositon(e);
-    const endX = mousePos.x;
-    const endY = mousePos.y;
+    const { startX, startY } = this.state;
+    const dX = mousePos.x - startX;
+    const dY = mousePos.y - startY;
+    const endX = startX + dX;
+    const endY = startY + dY;
     const ctx = this.getContext();
     ctx.globalCompositeOperation = 'destination-out';
     ctx.lineWidth = 30;
     ctx.lineCap = 'round';
     ctx.beginPath();
-    ctx.moveTo(this.state.startX, this.state.startY);
+    ctx.moveTo(startX, startY);
     ctx.lineTo(endX, endY);
     ctx.stroke();
     this.setState({
