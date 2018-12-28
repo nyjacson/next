@@ -30,7 +30,7 @@ export default class Canvas extends React.Component<Props, State> {
   componentDidMount() {
     this.onResize();
     window.addEventListener('resize', this.onResize);
-    this.loopAnimation();
+    // this.loopAnimation();
     // const bgImg = new Image();
     // bgImg.src = '/static/img/top.jpg';
     // bgImg.width = this.state.canvasWidth;
@@ -89,6 +89,7 @@ export default class Canvas extends React.Component<Props, State> {
     this.setState({
       isDrawing: true
     });
+    this.drawLine();
     if (this.state.isDrawing) {
       const mousePos = this.getMousePositon(e);
       this.setState({
@@ -146,12 +147,15 @@ export default class Canvas extends React.Component<Props, State> {
       const { startX, startY, mouseX, mouseY } = this.state;
       const dX = mouseX - startX;
       const dY = mouseY - startY;
-      const endX = startX + dX / 10;
-      const endY = startY + dY / 10;
+      // const endX = startX + dX / 10;
+      // const endY = startY + dY / 10;
+      const endX = startX + dX;
+      const endY = startY + dY;
       const distance = this.lineDistance(startX, startY, endX, endY);
       const ctx = this.getContext();
       ctx.globalCompositeOperation = 'destination-out';
-      ctx.lineWidth = 1 + parseInt(distance, 10) / 2;
+      ctx.lineWidth = 1 + parseInt(distance, 10) / 4;
+      ctx.lineWidth = 20;
       ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(startX, startY);
@@ -164,10 +168,10 @@ export default class Canvas extends React.Component<Props, State> {
     }
   };
 
-  loopAnimation = () => {
-    requestAnimationFrame(this.loopAnimation);
-    this.drawLine();
-  };
+  // loopAnimation = () => {
+  //   requestAnimationFrame(this.loopAnimation);
+  //   this.drawLine();
+  // };
 
   render() {
     return (
