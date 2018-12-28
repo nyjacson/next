@@ -20,14 +20,18 @@ export default class Canvas extends React.Component<Props, State> {
       canvasHeight: 0,
       startX: 0,
       startY: 0,
+      mouseX: 0,
+      mouseY: 0,
       key: 0,
-      isDrawing: false
+      isDrawing: false,
+      mouseStoped: true
     };
   }
 
   componentDidMount() {
     this.onResize();
     window.addEventListener('resize', this.onResize);
+    this.loopAnimation();
     // const bgImg = new Image();
     // bgImg.src = '/static/img/top.jpg';
     // bgImg.width = this.state.canvasWidth;
@@ -87,15 +91,17 @@ export default class Canvas extends React.Component<Props, State> {
       isDrawing: true
     });
     if (this.state.isDrawing) {
-      this.drawLine(e);
+      const mousePos = this.getMousePositon(e);
+      this.setState({
+        mouseX: mousePos.x,
+        mouseY: mousePos.y
+      });
     }
   };
 
   mouseLeave = () => {
     this.setState({
-      isDrawing: false,
-      startX: 0,
-      startY: 0
+      isDrawing: false
     });
   };
 
@@ -106,6 +112,12 @@ export default class Canvas extends React.Component<Props, State> {
       y: e.clientY - rect.top
     };
   };
+
+  // controlMouseStatus = (dX, dY) => {
+  //   this.setState({
+  //     mouseStoped: dX < 3 && dY < 3
+  //   });
+  // };
 
   mouseEnter = e => {
     const mousePos = this.getMousePositon(e);
@@ -120,33 +132,35 @@ export default class Canvas extends React.Component<Props, State> {
     this.resetCanvas();
   };
 
-  drawLine = e => {
-    const mousePos = this.getMousePositon(e);
-    const { startX, startY } = this.state;
-    const dX = mousePos.x - startX;
-    const dY = mousePos.y - startY;
-    const endX = startX + dX;
-    const endY = startY + dY;
-    const ctx = this.getContext();
-    ctx.globalCompositeOperation = 'destination-out';
-    ctx.lineWidth = 30;
-    ctx.lineCap = 'round';
-    ctx.beginPath();
-    ctx.moveTo(startX, startY);
-    ctx.lineTo(endX, endY);
-    ctx.stroke();
-    this.setState({
-      startX: endX,
-      startY: endY
-    });
+  drawLine = () => {
+    if (this.state.isDrawing) {
+      const { startX, startY, mouseX, mouseY } = this.state;
+      const dX = mouseX - startX;
+      const dY = mouseY - startY;
+      const endX = startX + dX / 10;
+      const endY = startY + dY / 10;
+      const ctx = this.getContext();
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.lineWidth = 30;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(endX, endY);
+      ctx.stroke();
+      this.setState({
+        startX: endX,
+        startY: endY
+      });
+    }
   };
 
-  loop = () => {
-    requestAnimationFrame(this.loop);
+  loopAnimation = () => {
+    requestAnimationFrame(this.loopAnimation);
     this.drawLine();
   };
 
   render() {
+    console.log('render');
     return (
       <div className={styles.topbgImg} ref={this.canvasWrapperRef}>
         <canvas
