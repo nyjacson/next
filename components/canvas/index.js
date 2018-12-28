@@ -20,6 +20,8 @@ export default class Canvas extends React.Component<Props, State> {
       canvasHeight: 0,
       startX: 0,
       startY: 0,
+      endX: 0,
+      endY: 0,
       key: 0,
       isDrawing: false
     };
@@ -110,19 +112,19 @@ export default class Canvas extends React.Component<Props, State> {
 
   drawLine = e => {
     const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const endX = e.clientX - rect.left;
+    const endY = e.clientY - rect.top;
     const ctx = this.getContext();
     ctx.globalCompositeOperation = 'destination-out';
     ctx.lineWidth = 10;
     ctx.lineCap = 'round';
     ctx.beginPath();
     ctx.moveTo(this.state.startX, this.state.startY);
-    ctx.lineTo(x, y);
+    ctx.lineTo(endX, endY);
     ctx.stroke();
     this.setState({
-      startX: x,
-      startY: y
+      startX: endX,
+      startY: endY
     });
   };
 
