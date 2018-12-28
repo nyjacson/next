@@ -23,8 +23,7 @@ export default class Canvas extends React.Component<Props, State> {
       mouseX: 0,
       mouseY: 0,
       key: 0,
-      isDrawing: false,
-      mouseStoped: true
+      isDrawing: false
     };
   }
 
@@ -113,6 +112,16 @@ export default class Canvas extends React.Component<Props, State> {
     };
   };
 
+  lineDistance = (point1x, point1y, point2x, point2y) => {
+    let xs = 0;
+    let ys = 0;
+    xs = point2x - point1x;
+    xs *= xs;
+    ys = point2y - point1y;
+    ys *= ys;
+    return Math.sqrt(xs + ys);
+  };
+
   // controlMouseStatus = (dX, dY) => {
   //   this.setState({
   //     mouseStoped: dX < 3 && dY < 3
@@ -139,9 +148,10 @@ export default class Canvas extends React.Component<Props, State> {
       const dY = mouseY - startY;
       const endX = startX + dX / 10;
       const endY = startY + dY / 10;
+      const distance = this.lineDistance(startX, startY, endX, endY);
       const ctx = this.getContext();
       ctx.globalCompositeOperation = 'destination-out';
-      ctx.lineWidth = 30;
+      ctx.lineWidth = 1 + parseInt(distance, 10) / 2;
       ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(startX, startY);
@@ -160,7 +170,6 @@ export default class Canvas extends React.Component<Props, State> {
   };
 
   render() {
-    console.log('render');
     return (
       <div className={styles.topbgImg} ref={this.canvasWrapperRef}>
         <canvas
