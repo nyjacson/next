@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import uniq from 'lodash.uniq';
 import { Button } from '../components/button';
 import Text from '../components/text';
 import styles from './css/contact.scss';
@@ -37,24 +38,31 @@ export class Contact extends React.Component<Props, State> {
     this.setState(obj);
   };
 
-  registError = e => {
-    const val = e.target.name;
+  handleOnSubmit = () => {
+    const { name, address, tel, budget, content } = this.state;
+    const postData = {
+      name,
+      address,
+      tel,
+      budget,
+      content
+    };
+    console.log('post', postData);
+  };
+
+  registError = name => {
     this.setState(prevState => {
       const currentError = prevState.errors;
-      if (currentError.some(err => err !== val)) {
-        return {
-          errors: currentError.push(val)
-        };
-      }
-      return {};
+      return {
+        errors: uniq([...currentError, name])
+      };
     });
   };
 
-  unregistError = e => {
-    const val = e.target.name;
+  unregistError = name => {
     this.setState(prevState => {
       const currentError = prevState.errors;
-      const idx = currentError.findIndex(err => err === val);
+      const idx = currentError.findIndex(err => err === name);
       if (idx >= 0) {
         currentError.splice(idx, 1);
         return { errors: currentError };
@@ -96,6 +104,8 @@ export class Contact extends React.Component<Props, State> {
                 id="address"
                 name="address"
                 onBlur={this.handleOnBlur}
+                registError={this.registError}
+                unregistError={this.unregistError}
                 validations={[
                   {
                     rule: 'required',
@@ -114,6 +124,8 @@ export class Contact extends React.Component<Props, State> {
                 id="tel"
                 name="tel"
                 onBlur={this.handleOnBlur}
+                registError={this.registError}
+                unregistError={this.unregistError}
                 validations={[
                   {
                     rule: 'required',
@@ -128,6 +140,8 @@ export class Contact extends React.Component<Props, State> {
                 id="budget"
                 name="budget"
                 onBlur={this.handleOnBlur}
+                registError={this.registError}
+                unregistError={this.unregistError}
                 validations={[
                   {
                     rule: 'required',
@@ -139,9 +153,11 @@ export class Contact extends React.Component<Props, State> {
             <div className={styles.inputWrapper}>
               <Text
                 label="お問い合わせ内容"
-                id="contact"
-                name="contact"
+                id="content"
+                name="content"
                 onBlur={this.handleOnBlur}
+                registError={this.registError}
+                unregistError={this.unregistError}
                 textArea
                 validations={[
                   {
@@ -152,7 +168,7 @@ export class Contact extends React.Component<Props, State> {
               />
             </div>
           </div>
-          <Button label="送信" disable={this.state.errors.length > 0} />
+          <Button label="送信" disable={this.state.errors.length > 0} onClick={this.handleOnSubmit} />
         </div>
       </div>
     );

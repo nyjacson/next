@@ -65,10 +65,10 @@ export default class Text extends React.Component<Props, State> {
     const isValid = validator[validation.rule](e.target.value);
     if (isValid === false) {
       this.setState({ error: true, errorMessage: validation.errorMessage });
-      // this.props.registError(e);
+      this.props.registError(e.target.name);
     } else {
       this.setState({ error: false, errorMessage: '' });
-      // this.props.unregistError(e);
+      this.props.unregistError(e.target.name);
     }
     return isValid;
   };
@@ -76,11 +76,12 @@ export default class Text extends React.Component<Props, State> {
   handleValidation = e => {
     const isValid =
       this.props.validations && this.props.validations.every(validation => this.validate(validation, e), this);
-    if (isValid) {
-      this.props.unregistError(e);
-    } else {
-      this.props.registError(e);
-    }
+    // if (isValid) {
+    //   this.props.unregistError(e);
+    // } else {
+    //   this.props.registError(e);
+    // }
+    console.log(isValid);
   };
 
   render() {
