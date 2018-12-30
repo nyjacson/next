@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import { Button } from '../components/button';
-import styles from './index.scss';
+import styles from './css/index.scss';
 import PostsList from '../components/postsList';
 import Canvas from '../components/canvas';
 import { fetchCagetories, fetchPosts } from '../actions/wpControl';

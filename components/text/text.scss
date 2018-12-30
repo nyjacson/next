@@ -1,0 +1,62 @@
+@import '../../styles/index.scss';
+
+.textWrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+  > label {
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+  }
+}
+
+.iconStar {
+  position: absolute;
+  background: url('/static/img/icon-star.svg') no-repeat;
+  top: 3px;
+  right: -13px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.textarea {
+  border: none;
+  width: 100%;
+  border-bottom: solid 1px #cccccc;
+  height: 40px;
+  font-size: 20px;
+  height: 7em;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input {
+  border: none;
+  width: 100%;
+  border-bottom: solid 1px #cccccc;
+  height: 40px;
+  font-size: 20px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.errorWrapper {
+  .input, .textarea {
+    border-bottom: solid 1px $accent-color;
+  }
+}
+
+.error {
+  padding-top: 5px;
+  color: $accent-color;
+  display: inline-block;
+}

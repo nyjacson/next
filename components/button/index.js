@@ -5,13 +5,14 @@ import Link from 'next/link';
 import styles from './button.scss';
 
 type Props = {
-  onClick: ?Funtion,
-  href: ?String,
-  query: ?Object,
+  onClick: Funtion,
+  href?: String,
+  query?: Object,
   label: String,
-  imgSrc: ?String,
-  imgAlt: ?String,
-  theme: ?String
+  imgSrc?: String,
+  imgAlt?: String,
+  theme?: String,
+  disable?: boolean
 };
 
 type State = {
@@ -19,6 +20,15 @@ type State = {
 };
 
 export class Button extends React.Component<Props, State> {
+  static defaultProps = {
+    disable: false,
+    href: '',
+    query: '',
+    imgSrc: '',
+    imgAlt: '',
+    theme: 'primary'
+  };
+
   constructor(props) {
     super(props);
     this.contactRef = React.createRef();
@@ -50,7 +60,9 @@ export class Button extends React.Component<Props, State> {
     const buttonContents = () => (
       <button
         type="button"
-        className={`${styles.button} ${this.state.onHover ? styles.onHover : ''} ${buttonTheme}`}
+        className={`${styles.button} ${this.state.onHover ? styles.onHover : ''} ${buttonTheme} ${
+          this.props.disable ? styles.disable : ''
+        }`}
         onMouseEnter={this.handleHoverOn}
         onMouseLeave={this.handleHoverOff}
         onClick={this.props.onClick || null}

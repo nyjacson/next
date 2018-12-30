@@ -47,3 +47,8 @@
   top: 25px;
   right: 28px;
 }
+
+.disable {
+  background: $disabled-color;
+  pointer-events: none;
+}
