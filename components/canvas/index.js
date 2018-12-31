@@ -86,16 +86,8 @@ export default class Canvas extends React.Component<Props, State> {
   };
 
   mouseMove = e => {
-    this.setState({
-      isDrawing: true
-    });
-    this.drawLine();
     if (this.state.isDrawing) {
-      const mousePos = this.getMousePositon(e);
-      this.setState({
-        mouseX: mousePos.x,
-        mouseY: mousePos.y
-      });
+      this.drawLine(e);
     }
   };
 
@@ -103,6 +95,7 @@ export default class Canvas extends React.Component<Props, State> {
     this.setState({
       isDrawing: false
     });
+    this.resetCanvas();
   };
 
   getMousePositon = e => {
@@ -129,22 +122,35 @@ export default class Canvas extends React.Component<Props, State> {
   //   });
   // };
 
-  mouseEnter = e => {
-    const mousePos = this.getMousePositon(e);
+  // mouseEnter = e => {
+  //   const mousePos = this.getMousePositon(e);
+  //   this.setState({
+  //     startX: mousePos.x,
+  //     startY: mousePos.y
+  //   });
+  // };
+
+  mouseUp = () => {
     this.setState({
-      isDrawing: true,
-      startX: mousePos.x,
-      startY: mousePos.y
+      isDrawing: false
     });
   };
 
-  mouseDown = () => {
-    this.resetCanvas();
+  mouseDown = e => {
+    const mousePos = this.getMousePositon(e);
+    this.setState({
+      startX: mousePos.x,
+      startY: mousePos.y,
+      isDrawing: true
+    });
   };
 
-  drawLine = () => {
+  drawLine = e => {
     if (this.state.isDrawing) {
-      const { startX, startY, mouseX, mouseY } = this.state;
+      const { startX, startY } = this.state;
+      const mousePos = this.getMousePositon(e);
+      const mouseX = mousePos.x;
+      const mouseY = mousePos.y;
       const dX = mouseX - startX;
       const dY = mouseY - startY;
       // const endX = startX + dX / 10;
@@ -181,10 +187,11 @@ export default class Canvas extends React.Component<Props, State> {
           ref={this.canvasRef}
           width={this.state.canvasWidth || 0}
           height={this.state.canvasHeight || 0}
-          onMouseEnter={e => this.mouseEnter(e)}
+          // onMouseEnter={e => this.mouseEnter(e)}
           onMouseLeave={e => this.mouseLeave(e)}
           onMouseMove={e => this.mouseMove(e)}
-          onMouseDown={() => this.mouseDown()}
+          onMouseDown={e => this.mouseDown(e)}
+          onMouseUp={() => this.mouseUp()}
         />
       </div>
     );
