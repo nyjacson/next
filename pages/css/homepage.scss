@@ -1,0 +1,93 @@
+@import '../../styles/index.scss';
+
+.mainText {
+  margin-bottom: 95px;
+}
+
+.subTitle {
+  margin-bottom: 130px;
+  line-height: 1.5;
+}
+
+.homepageWrapper {
+  position: relative;
+  z-index: 10;
+  background: #efefef;
+}
+
+.topMain {
+  height: calc(100vh - #{$header-height});
+  padding-top: 80px;
+  pointer-events: none;
+}
+
+.subTitle {
+  font-size: 25px;
+  margin-bottom: 130px;
+  line-height: 1.5;
+}
+
+.subText {
+  margin-bottom: 45px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  border-bottom: $border-default;
+  display: inline-block;
+}
+
+.h2 {
+  font-size: 30px;
+  line-height: 1.5;
+  margin-bottom: 45px;
+  font-weight: bold;
+}
+
+.consulting {
+  display: flex;
+  background: #F2F1ED;
+
+  .left {
+    padding: 80px 60px 120px;
+    width: 50%;
+    pointer-events: auto;
+  
+    > p {
+      line-height: 1.8;
+    }
+  }
+
+  .right {
+    padding: 80px 60px;
+    width: 50%;
+  }
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.design {
+  padding: 80px 0 120px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.develop {
+  display: flex;
+  background: #F2F1ED;
+
+  .left {
+    padding: 80px 60px 120px;
+    width: 50%;
+    pointer-events: auto;
+  
+    > p {
+      line-height: 1.8;
+    }
+  }
+
+  .right {
+    padding: 80px 60px;
+    width: 50%;
+  }
+}

@@ -31,7 +31,6 @@ export class Top extends React.Component<Props, State> {
     this.canvasRef = React.createRef();
     this.canvasWrapperRef = React.createRef();
     this.state = {
-      onHover: false,
       contactHeight: 0,
       loadedPosts: 0,
       showTopImg: true
@@ -67,18 +66,6 @@ export class Top extends React.Component<Props, State> {
     const { clientHeight } = this.contactRef.current;
     this.setState({
       contactHeight: clientHeight
-    });
-  };
-
-  handleHoverOn = () => {
-    this.setState({
-      onHover: true
-    });
-  };
-
-  handleHoverOff = () => {
-    this.setState({
-      onHover: false
     });
   };
 
@@ -207,17 +194,7 @@ export class Top extends React.Component<Props, State> {
                 <br />
                 まずはご相談ください。
               </h2>
-              <a href>
-                <button
-                  type="button"
-                  className={`${styles.button} ${this.state.onHover ? styles.onHover : ''}`}
-                  onMouseEnter={this.handleHoverOn}
-                  onMouseLeave={this.handleHoverOff}
-                >
-                  <span>お問い合わせフォームへ</span>
-                  <img className={styles.iconPlane} src="static/img/plane.svg" alt="planeIcon" />
-                </button>
-              </a>
+              <Button label="お問い合わせフォームへ" imgSrc="static/img/plane.svg" href="contact" />
             </div>
           )}
         </div>
