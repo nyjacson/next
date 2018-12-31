@@ -29,20 +29,30 @@ export default class Sidebar extends React.Component<Props, State> {
   render() {
     const menus = [
       {
-        name: 'Home',
+        name: 'トップ',
         path: '/'
       },
       {
-        name: 'About',
+        name: 'ご利用案内',
+        path: '/',
+        subMenu: [
+          {
+            name: 'ホームページ作成の事前準備',
+            path: 'homepage'
+          }
+        ]
+      },
+      {
+        name: 'サービスメニュー',
+        path: 'service'
+      },
+      {
+        name: '記事・ブログ',
         path: '/'
       },
       {
-        name: 'Service',
-        path: '/'
-      },
-      {
-        name: 'Blog',
-        path: '/'
+        name: 'お問い合わせ',
+        path: 'contact'
       }
     ];
 

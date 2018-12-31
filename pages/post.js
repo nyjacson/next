@@ -2,8 +2,9 @@
 
 import React from 'react';
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
+import styles from './css/post.scss';
 import API from '../constants/api';
-import { PostPage } from '../components/postPage';
 
 type Props = {
   query: {
@@ -53,22 +54,17 @@ export default class Post extends React.Component<Props, State> {
 
   render() {
     return (
-      <div className="py-4">
-        <div className="titleContentsPadding">
-          <h1>{this.state.post.title}</h1>
+      <div className={styles.postWrapper}>
+        <div className={`titleContentsPadding ${styles.topMain}`}>
+          <h1 className={styles.mainText}>{this.state.post.title}</h1>
         </div>
         <div>
-          <PostPage post={this.state.post} />
+          <div key={this.state.post.id} className={styles.postSection}>
+            <p>{ReactHtmlParser(this.state.post.id)}</p>
+            <p>{ReactHtmlParser(this.state.post.title)}</p>
+            <p>{ReactHtmlParser(this.state.post.content)}</p>
+          </div>
         </div>
-        <style jsx>
-          {`
-            @media (max-width: 600px) {
-              p {
-                font-size: 14px;
-              }
-            }
-          `}
-        </style>
       </div>
     );
   }
