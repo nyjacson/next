@@ -35,9 +35,13 @@ export default class Sidebar extends React.Component<Props, State> {
       {
         name: 'ご利用案内',
         path: '/',
-        subMenu: [
+        subMenus: [
           {
             name: 'ホームページ作成の事前準備',
+            path: 'homepage'
+          },
+          {
+            name: 'UXとUIにおけるリサーチ',
             path: 'homepage'
           }
         ]
@@ -73,17 +77,40 @@ export default class Sidebar extends React.Component<Props, State> {
       });
     }
 
+    const getSubmenu = subMenus =>
+      subMenus.map(subM => {
+        return (
+          <li
+            key={subM.name}
+            className={`${styles.subMenuList} ${this.state.slideFadeIn ? styles.slideFadeIn : styles.slideFadeOut}`}
+          >
+            <Link href={{ pathname: subM.path }}>
+              <a href onClick={this.props.onToggleSlider}>
+                {subM.name}
+              </a>
+            </Link>
+          </li>
+        );
+      });
+
     const menuRendered = menus.map(m => {
       return (
         <li
           key={m.name}
           className={`${styles.li} ${this.state.slideFadeIn ? styles.slideFadeIn : styles.slideFadeOut}`}
         >
-          <Link href={{ pathname: m.path }}>
-            <a href onClick={this.props.onToggleSlider}>
+          {m.subMenus ? (
+            <div className={styles.subMenu}>
               {m.name}
-            </a>
-          </Link>
+              {getSubmenu(m.subMenus)}
+            </div>
+          ) : (
+            <Link href={{ pathname: m.path }}>
+              <a href onClick={this.props.onToggleSlider}>
+                {m.name}
+              </a>
+            </Link>
+          )}
         </li>
       );
     });

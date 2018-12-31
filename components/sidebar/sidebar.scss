@@ -6,11 +6,17 @@
   position: relative;
 }
 
-.li {
+.subMenu {
+  color: $text-white;
+}
+
+.subMenuList {
+  padding-left: 0.5em;
   list-style: none;
   font-size: 18px;
-  height: 45px;
   line-height: 45px;
+  opacity: inherit;
+  transition: opacity 0.5s linear;
 
   > a {
     color: $text-white;
@@ -58,21 +64,31 @@
 }
 
 .li {
+  list-style: none;
+  font-size: 18px;
+  line-height: 45px;
   opacity: 0;
   transition: opacity 0.5s linear;
 
   @for $i from 1 through 5 {
     &:nth-child(#{$i}) {  
         transition-delay: #{$i / 6}s;
-    }  
-  } 
+    }
+  }
+  > a {
+    color: $text-white;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
 }
 
 .slideFadeIn {
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .slideFadeOut {
-  opacity: 0;
+  opacity: 0 !important;
 }
  
