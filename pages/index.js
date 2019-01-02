@@ -7,6 +7,7 @@ import { Button } from '../components/button';
 import MoveLoading from '../components/svg/moveLoading';
 import styles from './css/index.scss';
 import PostsList from '../components/postsList';
+import Particle from '../components/particle';
 import Canvas from '../components/canvas';
 import { fetchCagetories, fetchPosts } from '../actions/wpControl';
 
@@ -112,6 +113,9 @@ export class Top extends React.Component<Props, State> {
             <div />
           </div>
           <div className={styles.serviceContents}>
+            <div className={styles.pargicleWrapper}>
+              <Particle />
+            </div>
             <p className={styles.subText}>WHAT WE DO</p>
             <h2 className={`${styles.itemText} ${styles.h2}`}>我々が提供できるサービス</h2>
             <div className={`flex-50 ${styles.serviceItemWrapper}`}>
