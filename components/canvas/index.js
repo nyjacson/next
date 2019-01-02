@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from './canvas.scss';
+import Loading from '../loading';
 
 type Props = {};
 
@@ -20,16 +21,18 @@ export default class Canvas extends React.Component<Props, State> {
       canvasHeight: 0,
       startX: 0,
       startY: 0,
-      mouseX: 0,
-      mouseY: 0,
+      // mouseX: 0,
+      // mouseY: 0,
       key: 0,
-      isDrawing: false
+      isDrawing: false,
+      loaded: false
     };
   }
 
   componentDidMount() {
     this.onResize();
     window.addEventListener('resize', this.onResize);
+    this.onLoad();
     // this.loopAnimation();
     // const bgImg = new Image();
     // bgImg.src = '/static/img/top.jpg';
@@ -145,6 +148,13 @@ export default class Canvas extends React.Component<Props, State> {
     });
   };
 
+  onLoad = () => {
+    console.log('loaded');
+    this.setState({
+      loaded: true
+    });
+  };
+
   drawLine = e => {
     if (this.state.isDrawing) {
       const { startX, startY } = this.state;
@@ -182,6 +192,7 @@ export default class Canvas extends React.Component<Props, State> {
   render() {
     return (
       <div className={styles.topbgImg} ref={this.canvasWrapperRef}>
+        {!this.state.loaded && <Loading />}
         <canvas
           key={this.state.key}
           ref={this.canvasRef}
@@ -192,6 +203,7 @@ export default class Canvas extends React.Component<Props, State> {
           onMouseMove={e => this.mouseMove(e)}
           onMouseDown={e => this.mouseDown(e)}
           onMouseUp={() => this.mouseUp()}
+          onLoad={this.onLoad}
         />
       </div>
     );

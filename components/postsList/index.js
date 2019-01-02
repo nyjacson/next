@@ -21,7 +21,7 @@ type State = {
 };
 
 const getCategories = (catId, categories) => {
-  const cat = categories.find(cat => cat.id === catId[0]);
+  const cat = categories.length > 0 ? categories.find(cat => cat.id === catId[0]) : null;
   return cat ? cat.name : catId;
 };
 
