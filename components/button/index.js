@@ -12,7 +12,8 @@ type Props = {
   imgSrc?: String,
   imgAlt?: String,
   theme?: String,
-  disable?: boolean
+  disable?: boolean,
+  svgIcon?: any
 };
 
 type State = {
@@ -26,7 +27,8 @@ export class Button extends React.Component<Props, State> {
     query: '',
     imgSrc: '',
     imgAlt: '',
-    theme: 'primary'
+    theme: 'primary',
+    svgIcon: null
   };
 
   constructor(props) {
@@ -69,6 +71,7 @@ export class Button extends React.Component<Props, State> {
       >
         <span>{this.props.label}</span>
         {this.props.imgSrc && <img className={styles.iconWrapper} src={this.props.imgSrc} alt={this.props.imgAlt} />}
+        {this.props.svgIcon && <div className={styles.svgIconWrapper}>{this.props.svgIcon}</div>}
       </button>
     );
     return this.props.href ? (

@@ -4,6 +4,7 @@ import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import Link from 'next/link';
 import IconCross from '../svg/iconCross';
+import Accordion from '../accordion';
 import styles from './sidebar.scss';
 
 type Props = {
@@ -22,9 +23,16 @@ export default class Sidebar extends React.Component<Props, State> {
     this.stokerRef = React.createRef();
     this.state = {
       slideFadeIn: false,
-      showStoker: false
+      showStoker: false,
+      acOpen: false
     };
   }
+
+  onClickAc = () => {
+    this.setState({
+      acOpen: !this.state.acOpen
+    });
+  };
 
   render() {
     const menus = [
@@ -101,8 +109,10 @@ export default class Sidebar extends React.Component<Props, State> {
         >
           {m.subMenus ? (
             <div className={styles.subMenu}>
-              {m.name}
-              {getSubmenu(m.subMenus)}
+              <a href onClick={this.onClickAc}>
+                {m.name}
+              </a>
+              <Accordion open={this.state.acOpen}>{getSubmenu(m.subMenus)}</Accordion>
             </div>
           ) : (
             <Link href={{ pathname: m.path }}>

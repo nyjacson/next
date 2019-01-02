@@ -7,7 +7,9 @@
 }
 
 .subMenu {
-  color: $text-white;
+  * {
+    color: $text-white;
+  }
 }
 
 .subMenuList {

@@ -22,8 +22,17 @@
     opacity: 0;
   }
 
+  .svgIconWrapper {
+    transition: all 200ms ease-out;
+    opacity: 0;
+  }
+
   &.onHover {
     > img {
+      opacity: 1;
+    }
+
+    .svgIconWrapper {
       opacity: 1;
     }
   }
@@ -46,6 +55,15 @@
   position: absolute;
   top: 25px;
   right: 28px;
+}
+
+.svgIconWrapper {
+  width: 25px;
+  height: 100%;
+  position: absolute;
+  right: 28px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .disable {

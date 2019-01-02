@@ -1,0 +1,69 @@
+@import '../../styles/index.scss';
+
+@mixin slideIn {
+  @keyframes key_slideIn {
+    0% {
+      display: none;
+      line-height: 0;
+      height: 0;
+      opacity: 0;
+    }
+
+    20% {
+      display: block;
+      // opacity: 0.7;
+    }
+
+    100% {
+      display: block;
+      line-height: 90px;
+      height: 90px;
+      opacity: 1;
+    }
+  }
+
+  animation: key_slideIn 0.2s ease-in 0s;
+  animation-fill-mode: forwards;
+}
+
+@mixin slideOut {
+  @keyframes key_slideOut {
+    0% {
+      display: block;
+      line-height: 90px;
+      height: 90px;
+      opacity: 1;
+    }
+
+    80% {
+      display: none;
+      // opacity: 0.3;
+    }
+
+    100% {
+      display: none;
+      line-height: 0;
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  animation: key_slideOut 0.2s ease-in 0s;
+  animation-fill-mode: forwards;
+}
+
+.wrapper {
+  // display: none;
+  line-height: 0;
+  height: 0;
+  opacity: 0;
+  overFlow: hidden;
+}
+
+.open {
+  @include slideIn;
+}
+
+.close {
+  @include slideOut;
+}

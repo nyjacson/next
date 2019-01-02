@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import { Button } from '../components/button';
+import MoveLoading from '../components/svg/moveLoading';
 import styles from './css/index.scss';
 import PostsList from '../components/postsList';
 import Canvas from '../components/canvas';
@@ -171,7 +172,8 @@ export class Top extends React.Component<Props, State> {
                     <Button
                       label="その他の記事も読む"
                       theme="secondary"
-                      imgSrc="static/img/icon-spinner.svg"
+                      // imgSrc="static/img/icon-spinner.svg"
+                      svgIcon={<MoveLoading />}
                       onClick={this.handleOnClickLoading}
                     />
                   </div>
