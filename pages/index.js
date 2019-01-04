@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import ReadMore from '../components/readMore';
 import { Button } from '../components/button';
 import MoveLoading from '../components/svg/moveLoading';
+import './css/bugfix.css';
 import styles from './css/index.scss';
 import PostsList from '../components/postsList';
 import Particle from '../components/particle';
@@ -156,11 +157,30 @@ export class Top extends React.Component<Props, State> {
             <div className={styles.contentsRight2}>
               <p className={styles.subText}>BEST PRACTICE</p>
               <h2 className={`${styles.subText} ${styles.h2}`}>ホームページ作成の事前準備</h2>
+              <p>効率よくホームページ(以下サイト)を作るためには、事前に準備しておくべきことがあります。</p>
               <p>
-                効率よくホームページを作るために、事前に準備シておくべきことがあります。まずは、あなたが伝えたいことを整理しましょう。そして、ページ構成を考えましょう。
+                全くはじめての方の場合、何から手をつけて良いのか検討もつかないという方もいらっしゃると思います。
+                最低限必要な情報をまとめておくことで、外部業者に依頼する際にも無駄なコミュニケーションや工数を削減することができます。
               </p>
               <p>
-                サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。
+                まずは目的地を設定しましょう。
+                <br />
+                そのサイトに訪れたお客様に対して最終的に何を達成していただきたいのかが目的地となります。これを「コンバージョン」という言葉で表現します。
+                <br />
+                目標となるコンバージョンを設定することで、そのホームページをどのように作るかの方向性や、掲載するコンテンツのアイデアが生まれるのです。
+              </p>
+              <p>
+                コンバージョンの具体的な例は様々です。
+                <br />
+                - 商品やサービスについてのお問い合わせ
+                <br />
+                - 商品やサービスの購入
+                <br />
+                - イベントへの参加申し込み
+                <br />
+              </p>
+              <p>
+                コンバージョンを設定する事で、これから考えるページ構成や、レイアウト、文章・画像コンテンツといった、サイト作成に必要な要素も、より具体的にイメージ出来るようにるのではないか思います。
               </p>
               <ReadMore pathname="post" />
             </div>

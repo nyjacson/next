@@ -8,12 +8,15 @@ import styles from './header.scss';
 
 type Props = {
   headTitle: string,
-  onClickMenu: Function
+  onClickMenu: Function,
+  currentPath: string
 };
 
 type State = {
   onMenu: boolean
 };
+
+const bgGray = ['/homepage'];
 
 export default class Header extends React.Component<Props, State> {
   constructor(props) {
@@ -35,10 +38,14 @@ export default class Header extends React.Component<Props, State> {
     });
   };
 
+  backgroundStyle = () => {
+    return bgGray.includes(this.props.currentPath) ? styles.bgGray : styles.bgNone;
+  };
+
   render() {
     return (
-      <div>
-        <Meta headTitle={this.props.headTitle || 'test'} />
+      <div className={this.backgroundStyle()}>
+        <Meta headTitle={this.props.headTitle || 'Well Being Creative'} />
         <header className={styles.headerWrapper}>
           <div className={styles.headerWrapper}>
             <div className={styles.headerInner}>

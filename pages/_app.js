@@ -48,7 +48,7 @@ export class MyApp extends App {
     return (
       <Container>
         <Provider store={store}>
-          <BaseLayout>
+          <BaseLayout currentPath={this.props.router.asPath}>
             <TransitionGroup>
               <CSSTransition key={router.asPath} timeout={500} classNames="fade">
                 <Component {...pageProps} {...router} />

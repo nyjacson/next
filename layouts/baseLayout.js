@@ -7,7 +7,8 @@ import styles from './baseLayout.scss';
 
 type Props = {
   headTitle: string,
-  children: any
+  children: any,
+  currentPath: string
 };
 export default class BaseLayout extends React.Component<Props, State> {
   constructor(props) {
@@ -25,7 +26,7 @@ export default class BaseLayout extends React.Component<Props, State> {
     const { headTitle, children } = this.props;
     return (
       <div>
-        <Header headTitle={headTitle} onClickMenu={this.onToggleSlider} />
+        <Header headTitle={headTitle} onClickMenu={this.onToggleSlider} currentPath={this.props.currentPath} />
         <div className={styles.mainWrapper}>{children}</div>
         <Footer />
         <Sidebar open={this.state.openSidebar} onToggleSlider={this.onToggleSlider} />
