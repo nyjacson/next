@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from './css/service.scss';
+import './css/bugfix.css';
 
 type Props = {};
 

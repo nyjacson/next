@@ -9,6 +9,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import BaseLayout from '../layouts/baseLayout';
 import categories from '../reducers/categories';
 import posts from '../reducers/posts';
+import './css/bugfix.css';
 
 const initialState = {
   testcat: {},

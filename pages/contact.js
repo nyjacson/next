@@ -6,6 +6,7 @@ import uniq from 'lodash.uniq';
 import { Button } from '../components/button';
 import Text from '../components/text';
 import styles from './css/contact.scss';
+import './css/bugfix.css';
 
 type Props = {};
 

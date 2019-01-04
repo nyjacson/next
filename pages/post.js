@@ -3,6 +3,7 @@
 import React from 'react';
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
+import './css/bugfix.css';
 import styles from './css/post.scss';
 import API from '../constants/api';
 
