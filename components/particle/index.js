@@ -102,7 +102,7 @@ export default class Particle extends React.Component<Props, State> {
               events: {
                 onhover: {
                   enable: true,
-                  mode: 'grab' //マウスオーバー時に発動する動き(下記modes内のgrab、repulse、bubbleより選択)
+                  mode: 'bubble' //マウスオーバー時に発動する動き(下記modes内のgrab、repulse、bubbleより選択)
                 },
                 onclick: {
                   enable: true, //クリックが有効か否か
