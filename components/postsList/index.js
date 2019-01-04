@@ -47,9 +47,12 @@ export class PostsList extends React.Component<Props, State> {
   }
 
   heightControl = () => {
-    const { clientWidth } = this.imgRef.current;
+    const clientWidth =
+      this.imgRef && this.imgRef.current && this.imgRef.current.clientWidth ? this.imgRef.current.clientWidth : null;
+    // const { clientWidth } = this.imgRef.current;
+
     this.setState({
-      imgHeight: (clientWidth / 4) * 3
+      imgHeight: clientWidth ? (clientWidth / 4) * 3 : 100
     });
   };
 

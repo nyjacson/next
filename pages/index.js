@@ -56,7 +56,7 @@ export class Top extends React.Component<Props, State> {
   }
 
   onScroll = () => {
-    if (window.top.pageYOffset > 2000) {
+    if (window.top.pageYOffset > 2500) {
       // 2000 could be any
       this.setState({ showTopImg: false });
     } else if (this.state.showTopImg === false) {
@@ -102,14 +102,19 @@ export class Top extends React.Component<Props, State> {
             <div className={styles.contentsLeft}>
               <p className={styles.subText}>WHAT WE THINK</p>
               <h2 className={`${styles.subText} ${styles.h2}`}>ホームページとブランディング</h2>
-              <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-              <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-              <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
+              <p>ホームページを作成する目的は何でしょうか？</p>
+              <p>
+                もちろんビジネスの規模によって、目的は様々だと思います。例えば、有名な大企業であれば自社のサービスや、社会への貢献を紹介するものかもしれません。また、起業したばかりのスタートアップ企業であれば自社を知ってもらうための名刺代わりだったりするのではないでしょうか。
+              </p>
+              <p>
+                ホームページは、お客様との最初のタッチポイントであり、お客様を伝えたい情報に適切に誘導し、分かりやすい表現で的確に伝えるという目的を持っています。
+              </p>
+              <p>
+                我々は、例え数分程度の短い滞在時間のお客様に対しても高品質かつ、きめ細かなサービスで、御社様の企業イメージに合わせた最高のUX(ユーザー体験)をご提供出来るような、上質なホームページ(或いはECサイト)を作って行きたいと考えています。
+              </p>
               <ReadMore pathname="post" textWhite />
             </div>
-            <div className={styles.contentsRight}>
-              <p>サンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキストサンプルテキスト</p>
-            </div>
+            <div className={styles.contentsRight} />
             <div />
           </div>
           <div className={styles.serviceContents}>
